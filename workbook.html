@@ -2152,8 +2152,8 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
         <div class="ps-item">
           <div class="ps-num">2</div>
           <div class="ps-content">
-            <div class="ps-title">더미 수치 입력</div>
-            <div class="ps-desc">강사 배포 더미 데이터를 AI에 붙여넣기. 또는 실제 수치를 임의 변경한 집계표를 직접 타이핑.</div>
+            <div class="ps-title">더미 데이터 파일 업로드</div>
+            <div class="ps-desc">강사 배포 더미 CSV 파일을 ChatGPT에 업로드 (파일 첨부 아이콘 클릭). 파일 업로드 기능은 ChatGPT Plus(유료) 필요 — 무료 사용자는 표 내용을 복사해서 붙여넣기로 대체.</div>
           </div>
         </div>
         <div class="ps-item">
@@ -2174,15 +2174,15 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
 
       <div style="margin-top:18px;">
         <table class="job-table">
-          <thead><tr><th>직군</th><th>AI 분석 질문 예시 (더미 데이터 기준)</th></tr></thead>
+          <thead><tr><th>직군</th><th>AI 분석 질문 예시 (파일 업로드 후 입력 — ChatGPT Plus 권장)</th></tr></thead>
           <tbody>
-            <tr><td><span class="job-tag">상품기획</span></td><td>"이 분기별 상품 매출 더미 데이터에서 성장률 상위 3개 노선과 이유를 분석해줘"</td></tr>
-            <tr><td><span class="job-tag">영업</span></td><td>"거래선별 더미 매출 데이터에서 집중 관리가 필요한 거래선과 이유를 찾아줘"</td></tr>
-            <tr><td><span class="job-tag">예약·발권</span></td><td>"노선별 예약률 더미 데이터에서 3분기 저조 노선과 회복 방안을 제안해줘"</td></tr>
-            <tr><td><span class="job-tag">경영지원·인사</span></td><td>"부서별 예산 집행 더미 데이터에서 이상 항목과 원인 가설을 도출해줘"</td></tr>
-            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td>"월간 VOC 유형별 더미 건수에서 반복 불만 패턴과 우선 개선 항목을 찾아줘"</td></tr>
-            <tr><td><span class="job-tag">카지노·VIP</span></td><td>"VIP 등급별 방문 더미 데이터에서 활성화 전략이 필요한 등급을 찾아줘"</td></tr>
-            <tr><td><span class="job-tag">IT·시스템</span></td><td>"시스템 장애 유형별 더미 건수에서 우선 해결 항목과 영향도를 분석해줘"</td></tr>
+            <tr><td><span class="job-tag">상품기획</span></td><td>"이 더미 데이터에서 성장률 상위 3개 노선을 분석하고, ① 분석 결과 텍스트 요약 ② 노선별 전분기 성장률 막대 차트 시각화 ③ 팀장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td></tr>
+            <tr><td><span class="job-tag">영업</span></td><td>"이 더미 데이터에서 집중 관리가 필요한 거래선을 분석하고, ① 위험 거래선 선정 이유 요약 ② 거래선별 매출 증감률 차트 시각화 ③ 영업본부장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td></tr>
+            <tr><td><span class="job-tag">예약·발권</span></td><td>"이 더미 데이터에서 3분기 저조 노선을 분석하고, ① 저조 노선 선정 이유 요약 ② 노선별 예약률 비교 차트 시각화 ③ 팀장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td></tr>
+            <tr><td><span class="job-tag">경영지원·인사</span></td><td>"이 더미 데이터에서 예산 집행 이상 항목을 분석하고, ① 이상 항목 및 원인 가설 요약 ② 부서별 예산 집행률 차트 시각화 ③ 본부장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td></tr>
+            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td>"이 더미 데이터에서 반복 불만 패턴을 분석하고, ① VOC 유형별 건수 요약 및 우선 개선 항목 ② 유형별 VOC 건수 파이 차트 시각화 ③ 팀장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td></tr>
+            <tr><td><span class="job-tag">카지노·VIP</span></td><td>"이 더미 데이터에서 활성화 전략이 필요한 VIP 등급을 분석하고, ① 등급별 방문 패턴 요약 ② 등급별 방문 빈도 차트 시각화 ③ 본부장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td></tr>
+            <tr><td><span class="job-tag">IT·시스템</span></td><td>"이 더미 데이터에서 우선 해결이 필요한 장애 유형을 분석하고, ① 장애 유형별 영향도 요약 ② 장애 유형별 건수 차트 시각화 ③ 팀장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td></tr>
           </tbody>
         </table>
       </div>
