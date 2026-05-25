@@ -34,7 +34,7 @@
     color: var(--ink);
     background: var(--cloud);
     min-height: 100vh;
-    zoom: 2.2;
+    zoom: 1.8;
   }
 
   /* ── TOP HEADER ── */
@@ -67,41 +67,53 @@
   }
 
   /* ── TABS ── */
+  /* ── SIDEBAR LAYOUT ── */
+  .layout-wrapper {
+    display: flex;
+    align-items: flex-start;
+  }
+  .content-wrapper {
+    flex: 1;
+    min-width: 0;
+  }
+
   .tab-nav {
     background: var(--canvas);
-    border-bottom: 2px solid var(--fog);
+    border-right: 2px solid var(--fog);
     display: flex;
+    flex-direction: column;
     gap: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    overflow-y: auto;
     position: sticky;
     top: 0;
+    height: 100vh;
+    width: 170px;
+    flex-shrink: 0;
     z-index: 100;
     box-shadow: var(--shadow);
   }
-  .tab-nav::-webkit-scrollbar { display: none; }
 
   .tab-btn {
-    flex-shrink: 0;
-    padding: 14px 22px 12px;
+    padding: 18px 18px 16px;
     border: none;
     background: transparent;
     cursor: pointer;
     font-family: inherit;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--graphite);
-    border-bottom: 3px solid transparent;
-    margin-bottom: -2px;
-    transition: color .15s, border-color .15s;
-    white-space: nowrap;
+    border-left: 3px solid transparent;
+    text-align: left;
+    line-height: 1.45;
+    white-space: normal;
+    transition: color .15s, border-color .15s, background .15s;
   }
   .tab-btn.active {
     color: var(--blue);
-    border-bottom-color: var(--blue);
+    border-left-color: var(--blue);
+    background: #f0f4ff;
   }
-  .tab-btn:hover:not(.active) { color: var(--ink); }
+  .tab-btn:hover:not(.active) { color: var(--ink); background: var(--cloud); }
 
   /* ── MAIN CONTENT ── */
   .tab-panel { display: none; }
@@ -615,7 +627,10 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
-    .tab-btn { padding: 12px 16px 10px; font-size: 12px; }
+    .layout-wrapper { flex-direction: column; }
+    .tab-nav { flex-direction: row; width: 100%; height: auto; position: sticky; top: 0; overflow-x: auto; border-right: none; border-bottom: 2px solid var(--fog); }
+    .tab-btn { border-left: none; border-bottom: 3px solid transparent; padding: 12px 14px 10px; font-size: 11px; white-space: nowrap; }
+    .tab-btn.active { border-left-color: transparent; border-bottom-color: var(--blue); background: #f0f4ff; }
     .container { padding: 18px 14px 48px; }
     .section-body { padding: 16px 16px 20px; }
     .phase-intro { padding: 20px 16px 18px; }
@@ -636,14 +651,16 @@
   <div class="credit">made by 이대형 with Claude</div>
 </header>
 
+<div class="layout-wrapper">
 <nav class="tab-nav" role="tablist">
-  <button class="tab-btn active" role="tab" onclick="switchTab(0)">Phase 0 — 강의 도입</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(1)">Phase 1 — 프롬프트</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(2)">Phase 2 — 문서·카피</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(3)">Phase 3 — 정보통합</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(4)">Phase 4 — 데이터·보고</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(5)">Phase 5 — 나만의 챗봇</button>
+  <button class="tab-btn active" role="tab" onclick="switchTab(0)">Phase 0<br>강의 도입</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(1)">Phase 1<br>프롬프트</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(2)">Phase 2<br>문서·카피</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(3)">Phase 3<br>정보통합</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(4)">Phase 4<br>데이터·보고</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(5)">Phase 5<br>나만의 챗봇</button>
 </nav>
+<div class="content-wrapper">
 
 <!-- ═══════════════════════════════════════════════ PHASE 0 ═══ -->
 <div class="tab-panel active" id="panel-0">
@@ -2476,6 +2493,9 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
 
 </div>
 </div>
+
+</div><!-- /content-wrapper -->
+</div><!-- /layout-wrapper -->
 
 <!-- ── REFERENCES FOOTER ── -->
 <footer style="background:var(--ink);color:#fff;padding:28px 24px 24px;margin-top:0;">
