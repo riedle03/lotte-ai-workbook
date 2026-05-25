@@ -99,6 +99,31 @@
   .tab-nav.collapsed .tab-btn {
     display: none;
   }
+  .tab-scroll {
+    flex: 1;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  .tab-scroll::-webkit-scrollbar { display: none; }
+  .scroll-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--graphite);
+    flex-shrink: 0;
+    width: 100%;
+    transition: color .15s, background .15s;
+    border-top: 1px solid var(--fog);
+  }
+  .scroll-arrow:first-of-type { border-top: none; border-bottom: 1px solid var(--fog); }
+  .scroll-arrow:hover { color: var(--blue); background: var(--cloud); }
+  .tab-nav.collapsed .scroll-arrow { display: none; }
 
   .sidebar-toggle {
     display: flex;
@@ -720,14 +745,18 @@
 <div class="layout-wrapper">
 <nav class="tab-nav" role="tablist">
   <button class="sidebar-toggle" onclick="toggleSidebar()" title="메뉴 접기/펼치기">☰</button>
-  <button class="tab-btn active" role="tab" onclick="switchTab(0)">Phase 0<br>강의 도입</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(1)">Phase 1<br>프롬프트</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(2)">Phase 2<br>문서·카피</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(3)">Phase 3<br>정보통합</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(4)">Phase 4<br>데이터·보고</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(5)">Phase 5<br>나만의 챗봇</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(6)">Phase 6<br>Gemini 특화</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(7)">Phase 7<br>이미지·영상</button>
+  <button class="scroll-arrow" onclick="scrollNav(-1)" title="위로">▲</button>
+  <div class="tab-scroll" id="tabScroll">
+    <button class="tab-btn active" role="tab" onclick="switchTab(0)">Phase 0<br>강의 도입</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(1)">Phase 1<br>프롬프트</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(2)">Phase 2<br>문서·카피</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(3)">Phase 3<br>정보통합</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(4)">Phase 4<br>데이터·보고</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(5)">Phase 5<br>나만의 챗봇</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(6)">Phase 6<br>Gemini 특화</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(7)">Phase 7<br>이미지·영상</button>
+  </div>
+  <button class="scroll-arrow" onclick="scrollNav(1)" title="아래로">▼</button>
 </nav>
 <div class="content-wrapper">
 
@@ -3331,6 +3360,11 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
 </footer>
 
 <script>
+function scrollNav(dir) {
+  const el = document.getElementById('tabScroll');
+  el.scrollBy({ top: dir * 80, behavior: 'smooth' });
+}
+
 function toggleSidebar() {
   const nav = document.querySelector('.tab-nav');
   const btn = nav.querySelector('.sidebar-toggle');
