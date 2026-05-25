@@ -557,6 +557,35 @@
   }
   .tag.blue { background: var(--blue-light); color: var(--blue); }
 
+  /* ── WHY BOX ── */
+  .why-box {
+    background: #fffbf0;
+    border: 1px solid #f0d070;
+    border-left: 4px solid #e6a800;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .why-box .why-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #b07800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .why-box .why-problem {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .why-box .why-solution {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
   /* ── TOOL LINKS ── */
   .tool-links {
     display: flex;
@@ -954,6 +983,13 @@
     </div>
     <div class="section-body">
 
+      <div class="why-box">
+        <div class="why-label">왜 필요한가</div>
+        <div class="why-problem">"보고서 만들어줘"라고 던지면 AI는 가장 평균적이고 그럴듯한 답변을 낸다. 내 업무 맥락·독자·목적이 없으니 제출할 수 없는 결과물이 나온다.<br>
+        <em style="color:var(--graphite);font-size:12px;">"단순히 'OO 만들어줘'라고 하는 것은 지시가 아니라 떠넘기기다" — 책 p.75</em></div>
+        <div class="why-solution">→ 프롬프트 마스터: 5가지 맥락을 구조화해 AI가 내 업무에 맞는 결과를 내도록 설계한다</div>
+      </div>
+
       <div class="flow-steps">
         <div class="flow-step">① Context<br><small>상황</small></div>
         <div class="flow-arrow">→</div>
@@ -1107,9 +1143,11 @@ Prompt Master는 아래 5단계 질문을 순서대로 진행한다.
       <span class="section-sub">7단계 수신자 중심 메일</span>
     </div>
     <div class="section-body">
-      <div class="so-what" style="margin-bottom:16px;">
-        <div class="sw-label">핵심 차별점</div>
-        일반 메일 자동화는 "내가 전달하고 싶은 것" 중심. 메일 마스터는 <strong>③단계에서 수신자가 가장 궁금해할 질문 2~3개를 먼저 설계</strong>하고 그 답을 메일에 녹입니다.
+      <div class="why-box">
+        <div class="why-label">왜 필요한가</div>
+        <div class="why-problem">복잡한 비즈니스 메일을 AI에 맡기면 "내가 전달하고 싶은 것" 중심으로 나온다. 도입부 3줄 안에 핵심이 없으면 바쁜 상대는 읽지 않는다. 수신자가 궁금해할 포인트가 빠진 메일은 답장 없이 묻힌다.<br>
+        <em style="color:var(--graphite);font-size:12px;">"도입부 3줄 안에 보낸 이유, 핵심 결론, 요청 사항을 요약하는 것이 프로의 기준이다" — 책 p.88</em></div>
+        <div class="why-solution">→ 메일 마스터: ③단계에서 수신자 예상 질문을 먼저 설계 → 그 답이 메일 본문에 자연스럽게 녹아든다</div>
       </div>
 
       <div class="flow-steps">
@@ -1277,6 +1315,12 @@ Prompt Master는 아래 5단계 질문을 순서대로 진행한다.
       <span class="section-sub">Tona 앞 단계 — "무엇을 쓸지" 사고 정리</span>
     </div>
     <div class="section-body">
+      <div class="why-box">
+        <div class="why-label">왜 필요한가</div>
+        <div class="why-problem">"기획안 써줘"라고 하면 AI는 막연하게 쓴다. 무엇을 써야 할지 사고 흐름이 정리되지 않은 채 AI에 던지면 방향 없는 결과물이 나온다. 내가 이 기획을 왜 하는지, 의사결정자가 무엇을 궁금해하는지 정리되지 않으면 목차도 없다.</div>
+        <div class="why-solution">→ 기획 방향성 마스터: 사고 흐름을 질문으로 구조화 → STEP 5에서 보고서 목차 자동 도출 → 그 목차를 Tona에 넘긴다</div>
+      </div>
+
       <div class="so-what" style="margin-bottom:16px;">
         <div class="sw-label">역할</div>
         기획안을 바로 쓰기 전에 사고 흐름을 질문으로 구조화하고, STEP 5에서 보고서 목차를 자동 도출. 이 목차를 Tona에 넘긴다.
@@ -1402,6 +1446,13 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
       <span class="section-sub">6단계 선택 → 회사 톤 문서</span>
     </div>
     <div class="section-body">
+      <div class="why-box">
+        <div class="why-label">왜 필요한가</div>
+        <div class="why-problem">AI가 생성한 초안을 그대로 상사에게 제출하는 것은 위험한 도박이다. AI 특유의 장황한 문체와 정형화된 구조는 숙련된 상사의 눈에 한눈에 간파된다. 팀장은 개조식을 선호하는데 본부장은 전략 메시지형을 원한다면? 두 건의 문서를 만들어야 하나?<br>
+        <em style="color:var(--graphite);font-size:12px;">"'AI가 쓴 문서'라는 인상을 주는 순간, 기획의 진정성은 사라지고 신뢰도는 급감한다" — 책 p.96</em></div>
+        <div class="why-solution">→ Tona: 6단계 선택값으로 독자·목적·스타일을 먼저 정의 → AI 문장을 전문 기획자가 작성한 수준의 보고서로 변환</div>
+      </div>
+
       <div class="concept-grid">
         <div class="concept-item">
           <div class="ci-label">①</div>
@@ -1520,6 +1571,12 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
       <span class="section-sub">7단계 → 메인·서브·본문 카피 3안</span>
     </div>
     <div class="section-body">
+      <div class="why-box">
+        <div class="why-label">왜 필요한가</div>
+        <div class="why-problem">AI에게 "오사카 단풍 광고 카피 써줘"라고 하면 나오는 것: "꿈에 그리던 단풍의 물결 속으로…", "환상적인 여정이 당신을 기다립니다". 어디서 본 듯한 평균값 카피다. 타겟·매체·USP 없이 나온 카피는 어느 여행사 광고에도 붙일 수 있는, 즉 우리 상품만의 카피가 아니다.</div>
+        <div class="why-solution">→ 카피 마스터: 7단계로 타겟·매체·USP·톤을 먼저 정의 → 진부한 표현 자동 회피 → 메인·서브·본문 3안 비교 선택</div>
+      </div>
+
       <div class="so-what" style="margin-bottom:16px;">
         <div class="sw-label">Tona와 정반대</div>
         Tona는 미사여구 제거가 원칙. 카피 마스터는 감성·임팩트·구체 명사로 <strong>"5초 안에 시선과 욕구를 동시에 잡는"</strong> 카피를 만든다.
@@ -1973,6 +2030,13 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
       <span class="section-sub">상사 질문 먼저 → 그 답으로 보고 구성</span>
     </div>
     <div class="section-body">
+      <div class="why-box">
+        <div class="why-label">왜 필요한가</div>
+        <div class="why-problem">김 과장은 회의 준비 상황을 보고했다. "홍길동 대리는 오늘 불참, 박 과장은 내일 정오 이후 가능, 회의실은 목요일…" 정보는 충분했다. 하지만 팀장의 미간은 더 좁아졌다. 팀장이 머릿속으로 던진 질문은 뻔하다: <strong>"그래서 언제 하면 돼?"</strong> 정보 나열과 보고는 다르다.<br>
+        <em style="color:var(--graphite);font-size:12px;">"보고의 고수는 '내가 무슨 말을 할까?'를 고민하지 않는다. '상사는 지금 무엇을 궁금해할까?'를 묻는다" — 책 p.104</em></div>
+        <div class="why-solution">→ 리사(ReSa): 상사가 던질 질문을 먼저 설계 → 그 답변만으로 보고 구성 → 짧고 명확한 보고 완성</div>
+      </div>
+
       <div class="so-what" style="margin-bottom:16px;">
         <div class="sw-label">일반 보고 vs 리사 보고</div>
         일반: "내가 할 말" 정리 → 보고 중 상사 질문에 당황<br>
