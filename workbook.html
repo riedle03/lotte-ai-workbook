@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>롯데관광개발 AI 실무 강의 워크북</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+
+  :root {
+    --blue: #024ad8;
+    --blue-light: #c9e0fc;
+    --blue-bright: #296ef9;
+    --navy: #0e3191;
+    --ink: #1a1a1a;
+    --canvas: #ffffff;
+    --cloud: #f7f7f7;
+    --fog: #e8e8e8;
+    --charcoal: #3d3d3d;
+    --graphite: #636363;
+    --coral: #ff5050;
+    --green: #0fa336;
+    --shadow: 0 2px 8px rgba(26,26,26,0.08);
+    --r-card: 16px;
+    --r-btn: 4px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--cloud);
+    min-height: 100vh;
+  }
+
+  /* ── TOP HEADER ── */
+  .site-header {
+    background: var(--ink);
+    color: #fff;
+    padding: 20px 24px 18px;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .site-header h1 {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+  .site-header .credit {
+    font-size: 11px;
+    color: var(--graphite);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .site-header .subtitle {
+    font-size: 12px;
+    color: #aaa;
+    width: 100%;
+    margin-top: 2px;
+  }
+
+  /* ── TABS ── */
+  .tab-nav {
+    background: var(--canvas);
+    border-bottom: 2px solid var(--fog);
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    flex-shrink: 0;
+    padding: 14px 22px 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--graphite);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color .15s, border-color .15s;
+    white-space: nowrap;
+  }
+  .tab-btn.active {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+  }
+  .tab-btn:hover:not(.active) { color: var(--ink); }
+
+  /* ── MAIN CONTENT ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+
+  /* ── PHASE INTRO ── */
+  .phase-intro {
+    background: var(--canvas);
+    border-radius: var(--r-card);
+    padding: 28px 28px 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+  .phase-tag {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: var(--r-btn);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .phase-intro h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .phase-intro .lead {
+    font-size: 15px;
+    color: var(--charcoal);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .output-box {
+    background: var(--blue-light);
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .output-box .label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue);
+    white-space: nowrap;
+    padding-top: 1px;
+  }
+  .output-box .value {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ── SECTION CARD ── */
+  .section-card {
+    background: var(--canvas);
+    border-radius: var(--r-card);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 18px 24px 14px;
+    border-bottom: 1px solid var(--fog);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .step-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-badge.blue { background: var(--blue); }
+  .step-badge.coral { background: var(--coral); }
+  .section-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .section-header .section-sub {
+    font-size: 12px;
+    color: var(--graphite);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .section-body {
+    padding: 20px 24px 24px;
+  }
+
+  /* ── CONCEPT BLOCK ── */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .concept-item {
+    background: var(--cloud);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--blue);
+  }
+  .concept-item .ci-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .concept-item .ci-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .concept-item .ci-desc {
+    font-size: 12px;
+    color: var(--charcoal);
+    line-height: 1.5;
+  }
+
+  /* ── FLOW STEPS ── */
+  .flow-steps {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 14px 0 10px;
+  }
+  .flow-step {
+    background: var(--cloud);
+    border: 1px solid var(--fog);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    text-align: center;
+  }
+  .flow-arrow {
+    font-size: 16px;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  /* ── PROMPT BLOCK ── */
+  .prompt-block {
+    position: relative;
+  }
+  .prompt-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .prompt-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .copy-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: var(--r-btn);
+    padding: 7px 16px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background .15s, transform .1s;
+    flex-shrink: 0;
+  }
+  .copy-btn:hover { background: var(--navy); }
+  .copy-btn:active { transform: scale(.97); }
+  .copy-btn.copied { background: var(--green); }
+
+  .prompt-text {
+    background: #f0f4ff;
+    border: 1px solid #c5d4f7;
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--ink);
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 420px;
+    overflow-y: auto;
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+  }
+  .prompt-text::-webkit-scrollbar { width: 6px; }
+  .prompt-text::-webkit-scrollbar-track { background: transparent; }
+  .prompt-text::-webkit-scrollbar-thumb { background: #c5d4f7; border-radius: 3px; }
+
+  /* ── START LINE ── */
+  .start-line {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin-top: 12px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .start-line .sl-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #aaa;
+    white-space: nowrap;
+  }
+  .start-line .sl-text {
+    font-weight: 600;
+    color: #fff;
+    font-style: italic;
+  }
+
+  /* ── PRACTICE STEPS ── */
+  .practice-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .ps-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .ps-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .ps-content {
+    flex: 1;
+  }
+  .ps-content .ps-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .ps-content .ps-desc {
+    font-size: 13px;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* ── JOB GRID ── */
+  .job-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  .job-table th {
+    background: var(--cloud);
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: 700;
+    color: var(--graphite);
+    border-bottom: 2px solid var(--fog);
+    font-size: 12px;
+  }
+  .job-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--fog);
+    color: var(--ink);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .job-table tr:last-child td { border-bottom: none; }
+  .job-table tr:hover td { background: #fafafa; }
+  .job-tag {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* ── HINT / DEMO BLOCK ── */
+  .hint-card {
+    background: var(--cloud);
+    border: 1px solid var(--fog);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+  }
+  .hint-card .hint-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--graphite);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .hint-card .hint-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .hint-card ul, .hint-card ol {
+    padding-left: 18px;
+    color: var(--charcoal);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .hint-card .hint-highlight {
+    background: var(--blue-light);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ── WARNING BOX ── */
+  .warning-box {
+    background: #fff5f5;
+    border: 1px solid #ffd0d0;
+    border-left: 4px solid var(--coral);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .warning-box strong { color: var(--coral); }
+
+  /* ── SOWATCH BOX ── */
+  .so-what {
+    background: var(--blue-light);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .so-what .sw-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  /* ── DIVIDER ── */
+  .tool-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0 20px;
+  }
+  .tool-divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--fog);
+  }
+  .tool-divider .td-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--graphite);
+    white-space: nowrap;
+    letter-spacing: 0.4px;
+  }
+
+  /* ── COMPARISON ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .compare-col {
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .compare-col.before { background: #fff5f5; border: 1px solid #ffd0d0; }
+  .compare-col.after { background: #f0fff4; border: 1px solid #b8e8c4; }
+  .compare-col .cc-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .compare-col.before .cc-label { color: var(--coral); }
+  .compare-col.after .cc-label { color: var(--green); }
+  .compare-col .cc-text {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  /* ── INLINE TAG ── */
+  .tag {
+    display: inline-block;
+    background: var(--fog);
+    color: var(--charcoal);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin: 0 2px;
+  }
+  .tag.blue { background: var(--blue-light); color: var(--blue); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .tab-btn { padding: 12px 16px 10px; font-size: 12px; }
+    .container { padding: 18px 14px 48px; }
+    .section-body { padding: 16px 16px 20px; }
+    .phase-intro { padding: 20px 16px 18px; }
+    .phase-intro h2 { font-size: 19px; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .concept-grid { grid-template-columns: 1fr; }
+    .prompt-text { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div>
+    <h1>롯데관광개발 AI 실무 강의 — 워크북</h1>
+    <div class="subtitle">50분 × 4 Phase | 수강생 배포용 | 모든 실습은 더미 데이터로 진행</div>
+  </div>
+  <div class="credit">made by 이대형 with Claude</div>
+</header>
+
+<nav class="tab-nav" role="tablist">
+  <button class="tab-btn active" role="tab" onclick="switchTab(0)">Phase 1 — 프롬프트</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(1)">Phase 2 — 문서·카피</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(2)">Phase 3 — 정보통합</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(3)">Phase 4 — 데이터·보고</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════ PHASE 1 ═══ -->
+<div class="tab-panel active" id="panel-0">
+<div class="container">
+
+  <div class="phase-intro">
+    <div class="phase-tag">Phase 1</div>
+    <h2>내 콘텐츠를 AI로 만든다<br>— 프롬프트 설계의 원리</h2>
+    <p class="lead">
+      AI에게 "써줘"라고 하면 평균값이 나온다. 좋은 프롬프트는 <strong>맥락(Context)·목적(Objective)·제약(Constraints)·사실(Facts)·대상(Target)</strong>을 담는다. 이번 Phase는 두 가지 마스터 프롬프트로 이 원리를 손에 익힌다.
+    </p>
+    <div class="output-box">
+      <span class="label">산출물</span>
+      <span class="value">① 본인 직군 실무 문서 1건 (프롬프트 마스터 활용)<br>② 본인 직군 비즈니스 메일 1건 (메일 마스터 활용)</span>
+    </div>
+  </div>
+
+  <!-- CONCEPT -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">개</div>
+      <h3>개념 — 왜 프롬프트가 다르면 결과가 다른가</h3>
+    </div>
+    <div class="section-body">
+      <div class="compare-grid">
+        <div class="compare-col before">
+          <div class="cc-label">Before — 막연한 요청</div>
+          <div class="cc-text">"가을 일본 여행 상품 기획서 써줘"<br>→ 뻔한 개요, 회사 맥락 없음, 독자 불명확</div>
+        </div>
+        <div class="compare-col after">
+          <div class="cc-label">After — 구조화된 요청</div>
+          <div class="cc-text">본부장 보고용 / A4 2장 / 40~50대 가족 타겟 / 경쟁사 없는 사찰 코스 / 다음주 화요일 제출<br>→ 실제로 쓸 수 있는 결과</div>
+        </div>
+      </div>
+      <div class="concept-grid">
+        <div class="concept-item">
+          <div class="ci-label">C — Context</div>
+          <div class="ci-title">상황·맥락</div>
+          <div class="ci-desc">어디에, 언제, 무슨 배경에서 활용하는가</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">O — Objective</div>
+          <div class="ci-title">목적</div>
+          <div class="ci-desc">이 프롬프트로 무엇을 얻고 싶은가</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">C — Constraints</div>
+          <div class="ci-title">제약조건</div>
+          <div class="ci-desc">분량, 형식, 언어, 기간, 예산 등</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">F — Facts</div>
+          <div class="ci-title">사실·배경정보</div>
+          <div class="ci-desc">내부 자료, 현황, 참고할 실제 데이터</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">T — Target</div>
+          <div class="ci-title">대상자</div>
+          <div class="ci-desc">임원 / 실무자 / 고객 / 거래처 등</div>
+        </div>
+      </div>
+      <div class="so-what">
+        <div class="sw-label">핵심 원리</div>
+        AI는 질문의 품질만큼 답한다. COCFT 다섯 요소가 모두 들어간 프롬프트는 AI가 "어떤 맥락에서, 어떤 독자를 위해, 어떤 제약 안에서" 답해야 하는지 정확히 이해한다.
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMPT MASTER -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">P1</div>
+      <h3>프롬프트 마스터</h3>
+      <span class="section-sub">5단계 대화형 설계</span>
+    </div>
+    <div class="section-body">
+
+      <div class="flow-steps">
+        <div class="flow-step">① Context<br><small>상황</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">② Objective<br><small>목적</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">③ Constraints<br><small>제약</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">④ Facts<br><small>사실</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">⑤ Target<br><small>대상자</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:var(--blue);color:#fff;border-color:var(--blue)">실행 프롬프트<br><small>자동 생성</small></div>
+      </div>
+
+      <div class="prompt-block" style="margin-top:18px;">
+        <div class="prompt-header-row">
+          <span class="prompt-title">프롬프트 마스터 — 전문 복사</span>
+          <button class="copy-btn" onclick="copyPrompt(this,'prompt-master')">복사</button>
+        </div>
+        <div class="prompt-text" id="prompt-master">📘 역할(Role)
+너는 프롬프트 마스터(Prompt Master) 다.
+전략적 사고와 기획을 돕는 AI 프롬프트 설계 전문가로서,
+사용자가 입력한 정보를 ①구조화 → ②분석 → ③실행 가능한 결과물로 변환한다.
+
+🎯 목표(Goal)
+- 사용자의 목적과 맥락을 반영한 맞춤형 프롬프트 자동 설계
+- 불명확한 입력을 명확화 질문으로 보완
+- 결과물을 즉시 복사·붙여넣기 가능한 실행형 프롬프트로 출력
+- (선택) 보고서·워크숍·시뮬레이션 등 실제 업무 활용 가능한 형태로 확장
+
+⚙️ 진행 방식
+Prompt Master는 아래 5단계 질문을 순서대로 진행한다.
+사용자가 각 질문에 답하면, 모든 답변을 종합해 최적화된 실행 프롬프트를 자동 생성한다.
+
+────────────────────────────
+1️⃣ [Context – 상황]
+이 프롬프트를 어디에 활용하려고 하나요?
+(예: 본부장 보고용 기획안 / 사내 워크숍 설계 / 고객 분석 등)
+
+2️⃣ [Objective – 목적]
+이 프롬프트를 통해 무엇을 얻고 싶나요?
+(예: 문항 설계 / 데이터 시뮬레이션 / 보고서 자동 생성 등)
+
+3️⃣ [Constraints – 제약조건]
+지켜야 할 조건이 있나요?
+(예: 분량, 형식, 대상, 예산, 기간, 언어, 출력 형태 등)
+
+4️⃣ [Facts & Inputs – 사실·참고 정보]
+참고할 수 있는 사실, 데이터, 내부 상황, 배경 정보가 있나요?
+
+5️⃣ [Target & Stakeholder – 대상자]
+이 결과물을 누가 볼 건가요?
+(예: 임원 / 실무자 / 교육참여자 / 고객 / 학생 등)
+────────────────────────────
+
+📤 출력 형식
+모든 답변이 완료되면, Prompt Master는 자동으로 아래 항목을 생성한다.
+① 프롬프트 요약표 – 입력 5요소 핵심 요약
+② 최적화된 실행 프롬프트 – 복사·붙여넣기 즉시 실행 가능
+③ 추천 확장 기능(선택) – 데이터 시뮬레이션 / 시각화 / PPT 변환 / 보고서 구조화
+
+🔥 시작
+- "시작해줘" → 1단계 질문부터 순차 진행
+- "완성해줘" → 최적 실행 프롬프트 출력
+
+🔁 피드백
+결과 출력 후 반드시 다음을 질문한다:
+👉 "수정하거나 보완하고 싶은 부분이 있나요?"</div>
+        <div class="start-line">
+          <span class="sl-label">시작 명령어</span>
+          <span class="sl-text">"시작해줘"</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE 1 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">실</div>
+      <h3>실습 — 본인 직군 실무 문서 만들기</h3>
+      <span class="section-sub">11분</span>
+    </div>
+    <div class="section-body">
+      <div class="warning-box">
+        <strong>⚠️ 보안 필수</strong> — 실데이터(실제 매출·고객정보·계약내용) 절대 입력 금지. 아래 더미 예시처럼 수치를 임의 변경하거나 직접 타이핑한 내용만 사용하세요.
+      </div>
+      <div class="practice-steps">
+        <div class="ps-item">
+          <div class="ps-num">1</div>
+          <div class="ps-content">
+            <div class="ps-title">AI 열기</div>
+            <div class="ps-desc">유료 AI 구독 있으신 분은 그걸, 없으신 분은 ChatGPT·Gemini 익숙한 걸로 새 창을 여세요.</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">2</div>
+          <div class="ps-content">
+            <div class="ps-title">프롬프트 마스터 전문 붙여넣기</div>
+            <div class="ps-desc">위 박스의 [복사] 버튼 → AI 창에 붙여넣기 → Enter</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">3</div>
+          <div class="ps-content">
+            <div class="ps-title">"시작해줘" 입력</div>
+            <div class="ps-desc">AI가 5단계 질문을 순서대로 물어봅니다. 아래 직군별 예시를 참고해 답변하세요.</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">4</div>
+          <div class="ps-content">
+            <div class="ps-title">5단계 답변 완료 → 결과 확인</div>
+            <div class="ps-desc">실행 프롬프트가 자동 생성됩니다. "완성해줘"를 입력하면 최종 문서까지 출력.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <table class="job-table">
+          <thead><tr><th>직군</th><th>프롬프트 마스터로 만들 문서</th><th>더미 Context 힌트</th></tr></thead>
+          <tbody>
+            <tr><td><span class="job-tag">상품기획</span></td><td>신상품 기획안</td><td>Context: 본부장 보고 / 동남아 가족 기획전 / 9월 오픈</td></tr>
+            <tr><td><span class="job-tag">영업</span></td><td>거래선 제안 메시지</td><td>Context: 일본 랜드사 영업 / 가을 단풍 상품 추가 제안</td></tr>
+            <tr><td><span class="job-tag">예약·발권</span></td><td>분기 예약 현황 보고</td><td>Context: 팀장 보고 / 3분기 노선별 예약률 요약</td></tr>
+            <tr><td><span class="job-tag">경영지원·인사</span></td><td>사내 교육 프로그램 기획</td><td>Context: 인사팀장 보고 / 하반기 직무교육 신설 제안</td></tr>
+            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td>VOC 월간 분석 보고</td><td>Context: CS팀장 보고 / 7월 불만 유형 Top 3 분석</td></tr>
+            <tr><td><span class="job-tag">카지노·VIP</span></td><td>VIP 등급별 운영 보고</td><td>Context: 본부장 보고 / VIP 멤버십 활성화 현황</td></tr>
+            <tr><td><span class="job-tag">IT·시스템</span></td><td>시스템 운영 현황 보고</td><td>Context: IT 본부장 보고 / 3분기 장애 발생 현황 요약</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="tool-divider">
+    <hr><div class="td-label">두 번째 마스터 — 메일 마스터</div><hr>
+  </div>
+
+  <!-- MAIL MASTER -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">P2</div>
+      <h3>메일 마스터</h3>
+      <span class="section-sub">7단계 수신자 중심 메일</span>
+    </div>
+    <div class="section-body">
+      <div class="so-what" style="margin-bottom:16px;">
+        <div class="sw-label">핵심 차별점</div>
+        일반 메일 자동화는 "내가 전달하고 싶은 것" 중심. 메일 마스터는 <strong>③단계에서 수신자가 가장 궁금해할 질문 2~3개를 먼저 설계</strong>하고 그 답을 메일에 녹입니다.
+      </div>
+
+      <div class="flow-steps">
+        <div class="flow-step">①수신 정보</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">②메일목적</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:var(--blue);color:#fff;border-color:var(--blue)">③수신자<br>예상질문★</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">④본문내용</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">⑤기대행동</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">⑥톤선택</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">⑦첨부</div>
+      </div>
+
+      <div class="prompt-block" style="margin-top:18px;">
+        <div class="prompt-header-row">
+          <span class="prompt-title">메일 마스터 — 전문 복사</span>
+          <button class="copy-btn" onclick="copyPrompt(this,'prompt-mail')">복사</button>
+        </div>
+        <div class="prompt-text" id="prompt-mail">📘 역할(Role)
+너는 메일 마스터(Business Mail Master)다.
+단순한 정보 전달을 넘어, '수신자가 궁금해할 핵심'을 꿰뚫어 보고
+해결책을 제시하는 메일을 작성한다.
+나는 아래 7단계 질문에 순서대로 답할 것이다.
+질문은 한 번에 하나씩만 제시하라.
+
+⚙️ 진행 방식
+1️⃣ 수신 정보(To/CC): 누가 읽고 누가 참조하는가?
+2️⃣ 메일 목적: 이 메일을 쓰는 근본적인 이유는 무엇인가?
+3️⃣ 수신자의 예상 질문: 이 메일을 읽는 사람이 가장 궁금해하거나
+   우려할 포인트 2~3가지는 무엇인가?
+4️⃣ 본문 핵심 내용: 3번의 질문에 대한 답변을 포함하여
+   본문에 들어갈 핵심 팩트(불릿/번호 추천)
+5️⃣ 기대 행동: 상대가 메일을 읽고 나서 즉시 해주길 바라는 행동
+6️⃣ 톤 앤 매너 선택:
+   1. 격식+친절 (정중한 제안/보고)
+   2. 협조+실무 (군더더기 없는 해결 중심)
+   3. 간결+보고 (핵심 요약 중심)
+7️⃣ 첨부 자료: 파일 이름 또는 링크
+
+📤 출력 형식
+- 제목: [말머리]를 포함하여 직관적이고 명확하게 작성
+- 도입부: 인사 + 메일 목적 + 가장 중요한 결론/요청 사항을 1~2문장으로 선제적 배치
+- 본문: 반드시 소제목과 불릿 포인트를 사용하여 가독성 극대화
+- 수신자의 예상 질문에 대한 답이 자연스럽게 녹아들 것
+- '5% 다듬기' 원칙 적용: 격식은 갖추되 중복 표현과 불필요한 미사여구 제거
+- 맺음말: 간결한 감사 인사 및 서명 영역
+- 첨부: 서명 하단에 표기
+
+🔁 피드백
+메일 출력 후 반드시 다음 문장을 말한다:
+"확인 부탁드립니다. 수정하거나 보완하고 싶은 부분이 있을까요?"</div>
+        <div class="start-line">
+          <span class="sl-label">시작 명령어</span>
+          <span class="sl-text">"시작해줘. 첫 번째 질문을 해줘."</span>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <table class="job-table">
+          <thead><tr><th>직군</th><th>메일 시나리오 (더미)</th></tr></thead>
+          <tbody>
+            <tr><td><span class="job-tag">영업</span></td><td>일본 랜드사에 가을 단풍 호텔 블록 60실 추가 요청 (영문 메일)</td></tr>
+            <tr><td><span class="job-tag">예약·발권</span></td><td>고객에게 항공 스케줄 변경 사전 안내</td></tr>
+            <tr><td><span class="job-tag">경영지원·인사</span></td><td>임원에게 하반기 사내 워크숍 기안 메일</td></tr>
+            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td>불만 고객에게 사과 및 보상 안내 메일</td></tr>
+            <tr><td><span class="job-tag">상품기획</span></td><td>거래처에 신상품 협조 요청 메일</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- HINT -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge coral">힌</div>
+      <h3>힌트 — 강사 시연 예시 (Phase 1)</h3>
+    </div>
+    <div class="section-body">
+      <div class="hint-card">
+        <div class="hint-label">프롬프트 마스터 시연 시나리오</div>
+        <div class="hint-title">상품기획팀 — 가을 동남아 가족 기획전 기획안</div>
+        <ul>
+          <li><strong>① Context:</strong> 본부장 보고용 기획안, 다음 주 화요일 제출</li>
+          <li><strong>② Objective:</strong> 가을 동남아 가족 기획전 콘셉트 및 운영 방향 정리</li>
+          <li><strong>③ Constraints:</strong> A4 2장, 불릿 중심, 임원 보고 포맷</li>
+          <li><strong>④ Facts:</strong> 다낭·푸꾸옥·코타키나발루 / 9~11월 / 99~149만원 / 키즈클럽 포함</li>
+          <li><strong>⑤ Target:</strong> 영업본부장 + 상품본부장</li>
+        </ul>
+        <div class="hint-highlight">→ "완성해줘" 입력 후 실행 프롬프트 + 기획안 초안이 동시에 출력됩니다.</div>
+      </div>
+      <div class="hint-card">
+        <div class="hint-label">메일 마스터 시연 시나리오</div>
+        <div class="hint-title">영업팀 — 일본 랜드사 영문 호텔 블록 추가 요청</div>
+        <ul>
+          <li><strong>① To:</strong> T.Yamamoto@k-land.co.jp / CC: 팀장</li>
+          <li><strong>② 목적:</strong> 2026 가을 단풍 호텔 블록 추가 요청</li>
+          <li><strong>③ 예상 질문:</strong> 몇 실 필요한지? 결제 조건은? 요청 마감은?</li>
+          <li><strong>④ 핵심 내용:</strong> 60실, 11월 1~15일, 결제 기존과 동일, 회신 5/30</li>
+          <li><strong>⑤ 기대 행동:</strong> 견적서 발송</li>
+          <li><strong>⑥ 톤:</strong> 격식+친절</li>
+        </ul>
+        <div class="hint-highlight">→ 영문 비즈니스 메일이 자동 생성됩니다. ③단계가 메일 완성도를 결정합니다.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ PHASE 2 ═══ -->
+<div class="tab-panel" id="panel-1">
+<div class="container">
+
+  <div class="phase-intro">
+    <div class="phase-tag">Phase 2</div>
+    <h2>내 문서의 톤을 잡는다<br>— 보고서 톤 vs 카피 톤</h2>
+    <p class="lead">
+      같은 내용도 <strong>보고서는 객관·숫자·중립</strong>이어야 하고 <strong>광고 카피는 감성·임팩트·차별화</strong>여야 한다. 이번 Phase는 두 가지 상반된 톤을 각각 마스터 프롬프트로 제어한다.
+    </p>
+    <div class="output-box">
+      <span class="label">산출물</span>
+      <span class="value">① 본인 직군 보고서·기획안 1건 (기획 방향성 마스터 → Tona)<br>② 본인 직군 광고 카피·홍보 문구 1건 (카피 마스터)</span>
+    </div>
+  </div>
+
+  <!-- CONCEPT -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">개</div>
+      <h3>개념 — 두 가지 톤의 차이</h3>
+    </div>
+    <div class="section-body">
+      <div class="compare-grid">
+        <div class="compare-col before" style="background:#f0f4ff;border-color:#c5d4f7;">
+          <div class="cc-label" style="color:var(--blue);">비즈니스 문서 톤 (Tona)</div>
+          <div class="cc-text">객관·중립·숫자 병기<br>감정·미사여구 제거<br>화살표 흐름 구조<br>결론: "~필요한 상황임"</div>
+        </div>
+        <div class="compare-col after">
+          <div class="cc-label">광고 카피 톤 (카피 마스터)</div>
+          <div class="cc-text">감성·임팩트·차별화<br>구체 명사·감각어 사용<br>CTA: "지금 예약 / 마감 임박"<br>진부 표현 자동 회피</div>
+        </div>
+      </div>
+
+      <div class="flow-steps" style="margin-top:18px;">
+        <div class="flow-step">기획 방향성 마스터<br><small>무엇을 쓸지</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Tona<br><small>어떻게 쓸지</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:var(--blue);color:#fff;border-color:var(--blue)">보고서·기획안<br><small>완성</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 기획 방향성 마스터 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">A</div>
+      <h3>기획 방향성 마스터</h3>
+      <span class="section-sub">Tona 앞 단계 — "무엇을 쓸지" 사고 정리</span>
+    </div>
+    <div class="section-body">
+      <div class="so-what" style="margin-bottom:16px;">
+        <div class="sw-label">역할</div>
+        기획안을 바로 쓰기 전에 사고 흐름을 질문으로 구조화하고, STEP 5에서 보고서 목차를 자동 도출. 이 목차를 Tona에 넘긴다.
+      </div>
+
+      <div class="concept-grid">
+        <div class="concept-item">
+          <div class="ci-label">STEP 1</div>
+          <div class="ci-title">과제 기본 정보</div>
+          <div class="ci-desc">지시자 / 최종 의사결정자 / 과제명</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">STEP 2</div>
+          <div class="ci-title">ASK 분석</div>
+          <div class="ci-desc">Attitude(입장) · Style(보고방식) · Knowledge(이해 수준)</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">STEP 3</div>
+          <div class="ci-title">기획 접근 전략</div>
+          <div class="ci-desc">ASK 기준 자동 도출</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">STEP 4</div>
+          <div class="ci-title">사고 흐름 질문</div>
+          <div class="ci-desc">10개 기본 질문 → 사용자 조정</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">STEP 5</div>
+          <div class="ci-title">보고서 목차 도출</div>
+          <div class="ci-desc">질문 1개 = 목차 1개 자동 변환</div>
+        </div>
+      </div>
+
+      <div class="prompt-block" style="margin-top:16px;">
+        <div class="prompt-header-row">
+          <span class="prompt-title">기획 방향성 마스터 — 전문 복사</span>
+          <button class="copy-btn" onclick="copyPrompt(this,'prompt-planning')">복사</button>
+        </div>
+        <div class="prompt-text" id="prompt-planning">📘 역할(Role)
+
+너는 기획의 방향성 마스터(Planning Direction Master)다.
+너의 역할은
+해결안을 바로 쓰지 않고
+기획자가 자연스러운 사고 흐름으로 생각을 정리하도록
+① 사고 흐름을 질문으로 구조화하고
+② 그 질문을 기반으로
+③ 보고서의 논리적 목차를 도출하는 것이다.
+
+🎯 목표(Goal)
+- 기획자가 사고 흐름에 막히지 않도록 돕는다
+- 상사 관점(ASK)을 반영하되 사고 순서는 훼손하지 않는다
+- 질문 → 사고 → 구조 → 목차로 이어지는 기획의 뼈대를 완성한다
+
+⚙️ 진행 방식
+STEP 1. 과제 기본 정보 확인
+※ 질문은 항상 1개씩만 제시한다.
+1️⃣ 지시자는 누구인가?
+2️⃣ 최종 의사결정자는 누구인가?
+3️⃣ 과제명(주제)은 무엇인가?
+
+STEP 1-보강. 추진 이유(Why) 확인
+Q. 이 과제를 지금 추진해야 하는 핵심 이유는 무엇인가?
+
+STEP 2. ASK 분석 (최종 의사결정자 기준)
+아래 항목을 번호 선택 방식으로 받는다. (복수 선택 가능)
+A. Attitude (입장·관심도)
+① 이슈에 적극적 / 소극적
+② 성과·효율 중심
+③ 리스크 관리 중심
+④ 조직 안정·관리 체계 중시
+⑤ 전략·방향성 중시
+B. Style (보고 수용 방식)
+① 결론 먼저
+② 숫자·지표 중심
+③ 읽는 형 / 듣는 형
+④ 비교·대안 구조 선호
+C. Knowledge (사전 이해 수준)
+① 이슈에 익숙함
+② 개념만 알고 있음
+③ 이슈 자체는 익숙하지 않음
+
+STEP 3. ASK → 기획 접근 전략 자동 도출
+
+STEP 4. 기획 사고 정리용 질문 세트 생성
+기본 질문 세트 (초안):
+① 왜 이 과제를 지금 다뤄야 하는가?
+② 현재 상황은 어떠한가?
+③ 어떤 문제가 발생하고 있는가?
+④ 그 문제의 근본 원인은 무엇인가?
+⑤ 유사 사례는 있는가?
+⑥ 우리는 어떤 방향으로 대응할 것인가?
+⑦ 어떻게 실행할 것인가?
+⑧ 예산은 어느 정도인가?
+⑨ 기대 효과는 무엇인가?
+⑩ 리스크는 무엇인가?
+
+STEP 4-검증. 사고 흐름 적합성 확인 (필수)
+① 이 흐름으로 확정
+② 순서 조정 필요
+③ 질문 추가/통합 필요
+④ Why 또는 실행을 더 분해하고 싶음
+※ 1번 선택 전까지는 다음 단계로 넘어가지 않는다
+
+STEP 5. 사고 흐름 → 보고서 목차 자동 변환
+- 질문 1개 = 목차 1개, 사고 순서 그대로 유지
+
+📤 출력: ASK 분석 결과 + 기획 접근 전략 + 확정 질문 세트 + 보고서 목차
+
+🔥 시작: "시작해줘. 첫 번째 질문을 해줘."</div>
+        <div class="start-line">
+          <span class="sl-label">시작 명령어</span>
+          <span class="sl-text">"시작해줘. 첫 번째 질문을 해줘."</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TONA -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">B</div>
+      <h3>Tona — 보고서·기획안 톤 엔지니어</h3>
+      <span class="section-sub">6단계 선택 → 회사 톤 문서</span>
+    </div>
+    <div class="section-body">
+      <div class="concept-grid">
+        <div class="concept-item">
+          <div class="ci-label">①</div>
+          <div class="ci-title">문서 목적</div>
+          <div class="ci-desc">보고·제안·분석·기획·계획</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">②</div>
+          <div class="ci-title">독자</div>
+          <div class="ci-desc">팀장·임원·CEO·외부기관</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">③</div>
+          <div class="ci-title">길이</div>
+          <div class="ci-desc">1페이지·2페이지·PPT 3장</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">④</div>
+          <div class="ci-title">상단 요약</div>
+          <div class="ci-desc">헤드메시지형 or 일반형</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">⑤</div>
+          <div class="ci-title">소제목 스타일</div>
+          <div class="ci-desc">목차형(명사) or 메시지형(문장)</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">⑥</div>
+          <div class="ci-title">본문 스타일</div>
+          <div class="ci-desc">간결형(Fact 중심) or 전략메시지형</div>
+        </div>
+      </div>
+
+      <div class="prompt-block" style="margin-top:16px;">
+        <div class="prompt-header-row">
+          <span class="prompt-title">Tona — 전문 복사</span>
+          <button class="copy-btn" onclick="copyPrompt(this,'prompt-tona')">복사</button>
+        </div>
+        <div class="prompt-text" id="prompt-tona">📘 역할(Role)
+너는 Tona(토나)다.
+문장을 재구성하고 문서 표현을 최적화하는 전문 문서 스타일 엔지니어다.
+나는 내용을 제공하고, 너는 아래 절차에 따라 문서 스타일을 결정한 뒤 최종 보고서를 작성한다.
+
+⚙️ 진행 방식
+
+① 기본 정보 질문
+1. 문서 목적은 무엇인가요? (예: 보고, 제안, 분석, 기획, 계획 등)
+2. 문서 독자는 누구인가요? (예: 팀장, 임원, CEO 등)
+3. 문서 길이는 어느 정도로 할까요? (예: 1페이지, 2페이지, PPT 3장 등)
+
+② 문장 구성 방식 선택
+1. 상단 요약 포함 여부
+   - 상단 헤드메시지형 (문서 맨 위 3~5줄 요약)
+   - 일반형 (본문부터 시작)
+2. 소제목(단락 헤드라인) 스타일 선택
+   - 목차형(Topic-first): 명사형 제목
+   - 포괄 메시지형(Message-first): 문장형 핵심 메시지
+3. 본문 Bullet 문장 스타일 선택
+   - 간결형: Fact 중심 짧은 문장
+   - 전략메시지형: Fact + 해석 + 시사점 포함한 문장
+
+③ Tona 8대 문장 원칙 적용
+- 문장 앞 라벨링 활용 (예: (현황), (원인), (핵심))
+- 3단계 기호 구조: □ 1단계 / ○ 2단계 / ― 3단계
+- 감정·미사여구 제거 → 객관적·중립적 표현
+- 핵심 명사 중심의 짧은 문장
+- 숫자·기간·지표는 반드시 병기(%)
+- 화살표(→)로 흐름 구조 명확히
+- 핵심 문장은 Bold·밑줄로 강조
+- 결론 문장은 "~이 필요한 상황임 / 필요성 높음"으로 정리
+
+④ 사용자가 내용을 입력하면 →
+위 6가지 선택값을 기반으로 완성된 문서를 작성한다.
+
+⚠️ 주의: 선택값이 Tona 8대 원칙보다 항상 우선. 질문 6개 완료 후 문서 생성.
+
+🔥 시작: "Tona, 시작하자. 첫 번째 질문을 해줘."</div>
+        <div class="start-line">
+          <span class="sl-label">실습 2단계 흐름</span>
+          <span class="sl-text">기획 방향성 마스터로 목차 먼저 → 목차를 Tona에 넘겨 보고서 포맷</span>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <table class="job-table">
+          <thead><tr><th>직군</th><th>Tona 실습 산출물</th></tr></thead>
+          <tbody>
+            <tr><td><span class="job-tag">상품기획</span></td><td>신상품 기획안</td></tr>
+            <tr><td><span class="job-tag">영업</span></td><td>거래선 협의 결과 보고서</td></tr>
+            <tr><td><span class="job-tag">예약·발권</span></td><td>분기 예약 현황 보고</td></tr>
+            <tr><td><span class="job-tag">경영지원·인사</span></td><td>부서 운영 보고 / 사업 제안</td></tr>
+            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td>VOC 월간 분석 보고</td></tr>
+            <tr><td><span class="job-tag">카지노·VIP</span></td><td>VIP 등급별 운영 보고</td></tr>
+            <tr><td><span class="job-tag">IT·시스템</span></td><td>시스템 운영 현황 보고</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="tool-divider">
+    <hr><div class="td-label">후반 — 카피 마스터</div><hr>
+  </div>
+
+  <!-- COPY MASTER -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">C</div>
+      <h3>카피 마스터</h3>
+      <span class="section-sub">7단계 → 메인·서브·본문 카피 3안</span>
+    </div>
+    <div class="section-body">
+      <div class="so-what" style="margin-bottom:16px;">
+        <div class="sw-label">Tona와 정반대</div>
+        Tona는 미사여구 제거가 원칙. 카피 마스터는 감성·임팩트·구체 명사로 <strong>"5초 안에 시선과 욕구를 동시에 잡는"</strong> 카피를 만든다.
+      </div>
+
+      <div class="concept-grid">
+        <div class="concept-item">
+          <div class="ci-label">①②③</div>
+          <div class="ci-title">기본 정보</div>
+          <div class="ci-desc">카피 유형 / 매체·분량 / 핵심 타겟</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">④⑤⑥</div>
+          <div class="ci-title">상품·셀링포인트</div>
+          <div class="ci-desc">핵심 정보 / USP / 강조 키워드</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">⑦</div>
+          <div class="ci-title">톤 선택</div>
+          <div class="ci-desc">감성형·임팩트형·정보형·프리미엄형·트렌디형</div>
+        </div>
+      </div>
+
+      <div class="prompt-block" style="margin-top:16px;">
+        <div class="prompt-header-row">
+          <span class="prompt-title">카피 마스터 — 전문 복사</span>
+          <button class="copy-btn" onclick="copyPrompt(this,'prompt-copy')">복사</button>
+        </div>
+        <div class="prompt-text" id="prompt-copy">📘 역할(Role)
+너는 카피 마스터(Copy Master) 다.
+여행상품·캠페인·기획전을 위한 광고 카피와 홍보 문구를 설계하는
+실무 카피라이터다.
+나는 상품 정보를 제공하고, 너는 아래 절차에 따라 카피 스타일을
+결정한 뒤 메인·서브·본문 카피 3안을 작성한다.
+
+⚙️ 진행 방식
+
+① 기본 정보 질문
+1. 카피 유형은 무엇인가요?
+   (예: 신문광고 / 온라인 배너 / 기획전 페이지 / SNS 카드뉴스 /
+        사내 캠페인 슬로건 / 고객 안내 한 줄 카피 등)
+2. 매체와 분량은 어떻게 되나요?
+   (예: 조선일보 5단 / 네이버 메인 350×100 / 인스타 카드뉴스 4장)
+3. 핵심 타겟은 누구인가요?
+   (예: 40~60대 부부 / 초등 자녀 둔 30~40대 가족 / VIP 카지노 멤버 등)
+
+② 상품·셀링포인트 입력
+4. 상품 핵심 정보는 무엇인가요?
+   (어디·언제·며칠·가격 — 예: 오사카 단풍 5일, 11월, 169~189만원)
+5. 차별화 포인트(USP)는 무엇인가요?
+   (경쟁사·일반 상품 대비 우리만의 강점 1~3개)
+6. 강조하고 싶은 키워드는 무엇인가요?
+   (예: 시즌 한정 / 얼리버드 / 프리미엄 / 가성비 / 단독 / 마감 임박 등)
+
+③ 톤 매너 선택
+7. 어떤 톤으로 가시겠어요?
+   - 감성형: 스토리·정서·여운 중심
+   - 임팩트형: 한 줄 펀치·강한 메시지 중심
+   - 정보형: 스펙·혜택·숫자 중심
+   - 프리미엄형: 격식·고급·절제 중심
+   - 트렌디형: 캐주얼·구어체·요즘 어휘
+
+④ 카피 8대 원칙 적용
+- 헤드라인 5초 룰: 첫 줄에서 시선과 욕구를 동시에 잡는다
+- 베네핏 중심: 기능이 아닌 경험·감정·결과를 말한다
+- 구체성 우선: "환상적"이 아니라 "사찰 3곳, 료칸 1박"처럼
+- 한 문장 한 메시지: 메인 카피는 한 호흡에 읽힌다
+- 감각어 활용: 시각·청각·후각·촉각·미각 중 최소 하나
+- 시즌·한정·희소성 명시: "11월 한정", "10팀 단독" 등
+- CTA(행동 유도): "지금 예약 / 마감 임박 / 단 1주" 등
+- 진부한 표현 금지: "꿈에 그리던", "환상적인" 등 자동 회피
+
+📤 출력 형식
+① 카피 요약표 — 입력 7요소 핵심 요약
+② 카피 3안 — 각 안마다:
+   - 메인 카피 (1줄)
+   - 서브 카피 (1줄)
+   - 본문 (80자 이내)
+③ 추천 안 선정 + 선정 이유
+
+⚠️ 주의: 7가지 선택값이 8대 원칙보다 우선. 질문 7개 완료 후 카피 생성.
+
+🔥 시작: "카피 마스터, 시작하자. 첫 번째 질문을 해줘."</div>
+        <div class="start-line">
+          <span class="sl-label">시작 명령어</span>
+          <span class="sl-text">"카피 마스터, 시작하자. 첫 번째 질문을 해줘."</span>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <table class="job-table">
+          <thead><tr><th>직군</th><th>카피 마스터 실습 산출물</th></tr></thead>
+          <tbody>
+            <tr><td><span class="job-tag">상품기획</span></td><td>신상품 홍보 카피 / 기획전 카피</td></tr>
+            <tr><td><span class="job-tag">영업</span></td><td>거래선용 세일즈 한 줄</td></tr>
+            <tr><td><span class="job-tag">예약·발권</span></td><td>고객용 프로모션 안내 카피</td></tr>
+            <tr><td><span class="job-tag">경영지원·인사</span></td><td>사내 캠페인 슬로건</td></tr>
+            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td>감사 카드 한 줄</td></tr>
+            <tr><td><span class="job-tag">카지노·VIP</span></td><td>VIP 이벤트 초청 카피</td></tr>
+            <tr><td><span class="job-tag">IT·시스템</span></td><td>시스템 런칭 카피 (또는 Tona 확장)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- HINT -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge coral">힌</div>
+      <h3>힌트 — 강사 시연 예시 (Phase 2)</h3>
+    </div>
+    <div class="section-body">
+      <div class="hint-card">
+        <div class="hint-label">카피 마스터 시연 시나리오</div>
+        <div class="hint-title">신문광고 — 오사카·교토 단풍 5일</div>
+        <ul>
+          <li><strong>① 카피 유형:</strong> 신문광고</li>
+          <li><strong>② 매체·분량:</strong> 조선일보 5단, 메인 1줄 + 서브 1줄 + 본문 80자</li>
+          <li><strong>③ 핵심 타겟:</strong> 40~60대 부부, 자녀 분가 세대</li>
+          <li><strong>④ 상품:</strong> 오사카·교토 단풍 5일, 11월 5/12/19일 출발, 169~189만원</li>
+          <li><strong>⑤ USP:</strong> 사찰 단풍 명소 3곳 단독 코스 / 료칸 1박 / 한식 동행 가이드</li>
+          <li><strong>⑥ 키워드:</strong> 단풍 시즌 한정 / 료칸 단독 객실</li>
+          <li><strong>⑦ 톤:</strong> 감성형</li>
+        </ul>
+        <div class="hint-highlight">→ 메인·서브·본문 카피 3안 + 추천 안 자동 출력. Tona와 달리 "꿈에 그리던"은 금지어 — 구체 명사(사찰 3곳, 료칸)로 대체됩니다.</div>
+      </div>
+      <div class="hint-card">
+        <div class="hint-label">Tona 시연 시나리오</div>
+        <div class="hint-title">가을 동남아 가족 기획전 콘셉트 보고서</div>
+        <ul>
+          <li><strong>목적:</strong> 보고 (기획전 본부장 승인용)</li>
+          <li><strong>독자:</strong> 영업본부장</li>
+          <li><strong>길이:</strong> A4 2장</li>
+          <li><strong>상단 요약:</strong> 헤드메시지형</li>
+          <li><strong>소제목:</strong> 메시지형 (문장형)</li>
+          <li><strong>본문 스타일:</strong> 전략메시지형</li>
+        </ul>
+        <div class="hint-highlight">→ 기획 방향성 마스터에서 도출한 목차를 Tona에 넘기면, 회사 보고서 톤으로 자동 포맷됩니다.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ PHASE 3 ═══ -->
+<div class="tab-panel" id="panel-2">
+<div class="container">
+
+  <div class="phase-intro">
+    <div class="phase-tag">Phase 3</div>
+    <h2>내 부서 자료를 AI에게 학습시킨다<br>— NotebookLM + 외부 정보 통합</h2>
+    <p class="lead">
+      이번까지는 내 머릿속 정보로 AI를 썼다. 이번 Phase는 <strong>내 부서 자료를 직접 업로드</strong>해서 AI가 그 내용을 기반으로 답하게 만든다. 그리고 <strong>외부 최신 정보의 신뢰도</strong>를 검증하는 방법도 익힌다.
+    </p>
+    <div class="output-box">
+      <span class="label">산출물</span>
+      <span class="value">① NotebookLM으로 부서 자료 기반 Q&A 1건<br>② Perplexity로 업계 정보 검색 + 신뢰도 확인 1건</span>
+    </div>
+  </div>
+
+  <!-- CONCEPT -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">개</div>
+      <h3>개념 — 두 가지 정보 통합 방식</h3>
+    </div>
+    <div class="section-body">
+      <div class="compare-grid">
+        <div class="compare-col before" style="background:#f0f4ff;border-color:#c5d4f7;">
+          <div class="cc-label" style="color:var(--blue);">NotebookLM — 내 자료 기반</div>
+          <div class="cc-text">PDF·문서를 직접 업로드<br>그 내용만 기반으로 답변<br>출처 명시 + 인용 위치 표시<br>→ 회의록·보고서·매뉴얼 분석</div>
+        </div>
+        <div class="compare-col after">
+          <div class="cc-label">Perplexity — 외부 정보 검색</div>
+          <div class="cc-text">웹 실시간 검색 + 출처 링크<br>최신 업계 트렌드·경쟁사 동향<br>AI 생성 내용 아님, 실제 웹 페이지 참조<br>→ 신뢰도 ② Check 단계 활용</div>
+        </div>
+      </div>
+
+      <div class="flow-steps" style="margin-top:16px;">
+        <div class="flow-step">① Deep Dive<br><small>NotebookLM Q&A</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">② Check<br><small>Perplexity 출처 확인</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:var(--blue);color:#fff;border-color:var(--blue)">검증된 정보<br><small>업무 적용</small></div>
+      </div>
+
+      <div class="warning-box">
+        <strong>⚠️ AI 한계 인식 필수</strong> — NotebookLM은 업로드한 문서 안에서만 답합니다. 문서에 없는 내용은 "해당 정보를 찾을 수 없습니다"라고 답하는 것이 정상입니다. AI가 자신 있게 틀린 정보를 줄 때를 항상 경계하세요.
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTEBOOKLM -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">A</div>
+      <h3>NotebookLM — 내 자료 기반 Q&A</h3>
+      <span class="section-sub">notebooklm.google.com</span>
+    </div>
+    <div class="section-body">
+      <div class="practice-steps">
+        <div class="ps-item">
+          <div class="ps-num">1</div>
+          <div class="ps-content">
+            <div class="ps-title">NotebookLM 접속 + 새 노트북 생성</div>
+            <div class="ps-desc">notebooklm.google.com → 구글 계정 로그인 → "새 노트북" 클릭</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">2</div>
+          <div class="ps-content">
+            <div class="ps-title">더미 자료 업로드</div>
+            <div class="ps-desc">실데이터 절대 금지. 오늘 실습용 더미 자료 PDF 업로드 (강사 배포). PDF·Google Docs·URL·텍스트 붙여넣기 모두 가능.</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">3</div>
+          <div class="ps-content">
+            <div class="ps-title">채팅창에서 질문</div>
+            <div class="ps-desc">아래 직군별 질문 예시 참고. 답변 옆의 인용 마크를 클릭하면 원본 문서 해당 위치로 이동합니다.</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">4</div>
+          <div class="ps-content">
+            <div class="ps-title">오디오 오버뷰 (선택)</div>
+            <div class="ps-desc">"오디오 오버뷰 생성" 클릭 → AI 2명이 문서 내용을 팟캐스트 형식으로 요약. 이동 중 청취용으로 유용.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <table class="job-table">
+          <thead><tr><th>직군</th><th>NotebookLM 실습 질문 예시</th></tr></thead>
+          <tbody>
+            <tr><td><span class="job-tag">상품기획</span></td><td>"이 기획서에서 타겟 고객 특성과 USP를 3줄로 요약해줘"</td></tr>
+            <tr><td><span class="job-tag">영업</span></td><td>"이 회의록에서 거래선이 요청한 조건을 항목별로 정리해줘"</td></tr>
+            <tr><td><span class="job-tag">예약·발권</span></td><td>"이 매뉴얼에서 항공 변경 처리 절차를 단계별로 설명해줘"</td></tr>
+            <tr><td><span class="job-tag">경영지원·인사</span></td><td>"이 문서에서 예산 집행 관련 항목만 뽑아줘"</td></tr>
+            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td>"이 VOC 보고서에서 반복 불만 유형 Top 3는 무엇인가?"</td></tr>
+            <tr><td><span class="job-tag">카지노·VIP</span></td><td>"이 운영 보고에서 VIP 등급별 방문 패턴을 정리해줘"</td></tr>
+            <tr><td><span class="job-tag">IT·시스템</span></td><td>"이 장애 보고서에서 근본 원인과 재발 방지 조치를 요약해줘"</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="warning-box" style="margin-top:14px;">
+        <strong>⚠️ 실데이터 절대 업로드 금지</strong> — 실제 고객 정보, 계약서, 내부 매출 데이터는 업로드하지 마세요. 오늘 실습은 강사가 배포한 더미 자료로만 진행합니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- PERPLEXITY -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">B</div>
+      <h3>Perplexity — 외부 정보 검색 + 신뢰도 확인</h3>
+      <span class="section-sub">perplexity.ai</span>
+    </div>
+    <div class="section-body">
+      <div class="so-what" style="margin-bottom:16px;">
+        <div class="sw-label">일반 AI 검색과 차이점</div>
+        ChatGPT·Gemini는 학습된 정보를 생성합니다. Perplexity는 <strong>실시간 웹을 검색하고 출처 URL을 함께 제시</strong>합니다. "이 내용이 어디서 왔는지" 확인 가능.
+      </div>
+
+      <div class="practice-steps">
+        <div class="ps-item">
+          <div class="ps-num">1</div>
+          <div class="ps-content">
+            <div class="ps-title">perplexity.ai 접속</div>
+            <div class="ps-desc">구글 계정 로그인 (무료). 상단에서 "Focus: All" → 필요 시 "Academic" 또는 "Web" 선택 가능.</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">2</div>
+          <div class="ps-content">
+            <div class="ps-title">업계 관련 질문 입력</div>
+            <div class="ps-desc">아래 예시 질문 참고. 답변 오른쪽/아래의 [출처] 링크를 반드시 클릭해서 원본 확인.</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">3</div>
+          <div class="ps-content">
+            <div class="ps-title">② Check 단계 — 출처 원본 확인</div>
+            <div class="ps-desc">AI 답변이 맞는지 출처 링크를 클릭해서 원본 기사·보고서와 대조. 수치·날짜는 반드시 원본 확인 후 사용.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hint-card" style="margin-top:16px;">
+        <div class="hint-label">실습 질문 예시</div>
+        <ul>
+          <li>"2026년 일본 인바운드 관광 트렌드 최신 보고서"</li>
+          <li>"동남아 가족 여행 패키지 시장 현황 2025"</li>
+          <li>"국내 여행사 OTA 경쟁 현황 최근 뉴스"</li>
+          <li>"롯데관광 주요 상품 노선 현황" (공개 정보 범위 내)</li>
+          <li>"항공 좌석 수급 전망 2026 하반기"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- HINT -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge coral">힌</div>
+      <h3>힌트 — AI 정보 신뢰도 판단 기준</h3>
+    </div>
+    <div class="section-body">
+      <div class="hint-card">
+        <div class="hint-label">신뢰도 ① Deep Dive — 깊이 물어보기</div>
+        <ul>
+          <li>처음 답변에 만족하지 말고 "더 구체적으로", "수치를 포함해서", "반대 관점도 알려줘" 추가 질문</li>
+          <li>NotebookLM: "이 문서에 이 내용이 없으면 없다고 말해줘"를 미리 지시</li>
+        </ul>
+      </div>
+      <div class="hint-card">
+        <div class="hint-label">신뢰도 ② Check — 출처 확인</div>
+        <ul>
+          <li>Perplexity 출처 URL → 원본 기사·보고서 직접 클릭</li>
+          <li>수치·날짜가 일치하는지 대조. AI가 요약 과정에서 수치를 바꾸는 경우 있음</li>
+          <li>출처 없는 AI 답변은 업무 자료에 그대로 쓰지 않는다</li>
+        </ul>
+      </div>
+      <div class="warning-box">
+        <strong>⚠️ AI 자기 평가 점수 신뢰 금지</strong> — "이 정보의 신뢰도는 몇 점이야?"라고 물으면 AI는 높은 점수를 줍니다. 하지만 그 점수 자체가 AI의 자기 평가일 뿐입니다. 진짜 검증은 위 ② Check 단계처럼 출처 원본을 직접 확인하는 것입니다.
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ PHASE 4 ═══ -->
+<div class="tab-panel" id="panel-3">
+<div class="container">
+
+  <div class="phase-intro">
+    <div class="phase-tag">Phase 4</div>
+    <h2>데이터를 분석하고 보고한다<br>— AI 분석 + 리사(ReSa) 보고 설계</h2>
+    <p class="lead">
+      이번 Phase에서는 <strong>더미 데이터를 AI로 분석</strong>해 인사이트를 뽑고, 그 인사이트를 <strong>리사(ReSa)</strong>를 사용해 "상사가 던질 질문" 기반 보고 구조로 바꾼다. 4 Phase 중 가장 실무에 직접 연결되는 산출물이 나온다.
+    </p>
+    <div class="output-box">
+      <span class="label">산출물</span>
+      <span class="value">① AI 데이터 분석 인사이트 3줄<br>② 리사 기반 보고 멘트 + 핵심 요약 3줄 (+ 선택: PPT 목차)</span>
+    </div>
+  </div>
+
+  <!-- CONCEPT -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">개</div>
+      <h3>개념 — 두 단계 연결 구조</h3>
+    </div>
+    <div class="section-body">
+      <div class="flow-steps">
+        <div class="flow-step">더미 데이터 준비<br><small>엑셀·표·수치</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">AI 분석 질문<br><small>인사이트 3줄 추출</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:var(--blue);color:#fff;border-color:var(--blue)">리사(ReSa)<br><small>보고 설계</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">보고 멘트<br><small>+ PPT 목차</small></div>
+      </div>
+      <div class="so-what" style="margin-top:14px;">
+        <div class="sw-label">핵심 연결</div>
+        AI 분석에서 나온 인사이트 3줄 → 리사가 "상사 질문"을 먼저 설계 → 그 질문에 답하는 형태로 보고 멘트를 구성. Phase 3의 정보 검증 + Phase 2의 문서 톤이 모두 합쳐지는 종합 Phase.
+      </div>
+    </div>
+  </div>
+
+  <!-- AI 분석 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">A</div>
+      <h3>AI 데이터 분석</h3>
+      <span class="section-sub">더미 수치 → 인사이트 3줄</span>
+    </div>
+    <div class="section-body">
+      <div class="warning-box">
+        <strong>⚠️ 보안 필수</strong> — 실제 매출·예약·고객 데이터 절대 입력 금지. 수치를 임의 변경한 더미 데이터 또는 강사 배포 자료만 사용.
+      </div>
+
+      <div class="practice-steps" style="margin-top:14px;">
+        <div class="ps-item">
+          <div class="ps-num">1</div>
+          <div class="ps-content">
+            <div class="ps-title">AI 새 창 열기</div>
+            <div class="ps-desc">유료 AI 구독 있으신 분은 그걸, 없으신 분은 ChatGPT·Gemini 익숙한 걸로.</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">2</div>
+          <div class="ps-content">
+            <div class="ps-title">더미 수치 입력</div>
+            <div class="ps-desc">강사 배포 더미 데이터를 AI에 붙여넣기. 또는 실제 수치를 임의 변경한 집계표를 직접 타이핑.</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">3</div>
+          <div class="ps-content">
+            <div class="ps-title">분석 질문 입력</div>
+            <div class="ps-desc">아래 직군별 AI 분석 질문 예시 참고.</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">4</div>
+          <div class="ps-content">
+            <div class="ps-title">인사이트 3줄 추출</div>
+            <div class="ps-desc">AI 답변에서 핵심 인사이트 3줄을 메모. 이게 리사의 입력 재료가 됩니다.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <table class="job-table">
+          <thead><tr><th>직군</th><th>AI 분석 질문 예시 (더미 데이터 기준)</th></tr></thead>
+          <tbody>
+            <tr><td><span class="job-tag">상품기획</span></td><td>"이 분기별 상품 매출 더미 데이터에서 성장률 상위 3개 노선과 이유를 분석해줘"</td></tr>
+            <tr><td><span class="job-tag">영업</span></td><td>"거래선별 더미 매출 데이터에서 집중 관리가 필요한 거래선과 이유를 찾아줘"</td></tr>
+            <tr><td><span class="job-tag">예약·발권</span></td><td>"노선별 예약률 더미 데이터에서 3분기 저조 노선과 회복 방안을 제안해줘"</td></tr>
+            <tr><td><span class="job-tag">경영지원·인사</span></td><td>"부서별 예산 집행 더미 데이터에서 이상 항목과 원인 가설을 도출해줘"</td></tr>
+            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td>"월간 VOC 유형별 더미 건수에서 반복 불만 패턴과 우선 개선 항목을 찾아줘"</td></tr>
+            <tr><td><span class="job-tag">카지노·VIP</span></td><td>"VIP 등급별 방문 더미 데이터에서 활성화 전략이 필요한 등급을 찾아줘"</td></tr>
+            <tr><td><span class="job-tag">IT·시스템</span></td><td>"시스템 장애 유형별 더미 건수에서 우선 해결 항목과 영향도를 분석해줘"</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 리사 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">B</div>
+      <h3>리사 (ReSa) — 보고 스토리라인 설계</h3>
+      <span class="section-sub">상사 질문 먼저 → 그 답으로 보고 구성</span>
+    </div>
+    <div class="section-body">
+      <div class="so-what" style="margin-bottom:16px;">
+        <div class="sw-label">일반 보고 vs 리사 보고</div>
+        일반: "내가 할 말" 정리 → 보고 중 상사 질문에 당황<br>
+        리사: 상사가 던질 질문을 먼저 설계 → 그 답변으로만 보고 구성 → 질문이 나와도 이미 준비됨
+      </div>
+
+      <div class="concept-grid">
+        <div class="concept-item">
+          <div class="ci-label">① 단순 확인형</div>
+          <div class="ci-title">일정·완료 보고</div>
+          <div class="ci-desc">What 중심 / 결론 선행</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">② 현황 공유형</div>
+          <div class="ci-title">실적·상태 점검</div>
+          <div class="ci-desc">PREP 구조</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">③ 판단 요청형</div>
+          <div class="ci-title">대안 비교·선택</div>
+          <div class="ci-desc">비교형 / 결론 선행</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">④ 기획·전략형</div>
+          <div class="ci-title">신규 추진·개선</div>
+          <div class="ci-desc">SCQA or Why–What–How</div>
+        </div>
+      </div>
+
+      <div class="prompt-block" style="margin-top:16px;">
+        <div class="prompt-header-row">
+          <span class="prompt-title">리사(ReSa) — 전문 복사</span>
+          <button class="copy-btn" onclick="copyPrompt(this,'prompt-resa')">복사</button>
+        </div>
+        <div class="prompt-text" id="prompt-resa">📘 역할(Role)
+너의 이름은 리사(ReSa)다.
+너는 보고 스토리라인 아키텍트다.
+너의 역할은
+'보고자가 할 말'을 정리하는 것이 아니라,
+'보고를 받는 상사가 실제로 던질 질문'을 먼저 설계하고,
+그 질문에 대한 답변만으로
+짧고 명확한 보고를 완성하는 것이다.
+
+⚙️ 진행 방식
+
+■ 0) 시작 – 최소 설정
+사용자가 아래 형식으로 입력하면 즉시 시작한다.
+1) 보고 주제:
+2) 보고 대상:
+3) 보고 방식:
+   - 1) 30초 구두
+   - 2) 1~2분 구두
+   - 3) 2~3분 구두
+   - 4) 문서(A4)
+   - 5) PPT
+
+■ 1) 보고 성격 자동 진단
+보고 주제를 기준으로 다음 중 하나로 진단한다.
+① 단순 확인형 — 일정, 완료 보고
+② 현황 공유형 — 진행 상황, 실적 요약
+③ 판단 요청형 — 대안 비교, 선택 필요 사안
+④ 기획·전략형 — 신규 추진, 개선안
+
+■ 2) 상사 질문 제시 (유형별)
+
+▶ ① 단순 확인형
+"그래서, 이 건은 어떻게 진행하면 되는 거야?"
+"그렇게 진행 가능한 근거는 뭐야?"
+"내가 미리 알고 있어야 할 변수는 없어?"
+
+▶ ② 현황 공유형
+"지금 한 줄로 말하면 상태가 어때?"
+"그 판단의 근거는?"
+"문제나 리스크는?"
+"다음 단계는?"
+
+▶ ③ 판단 요청형
+"지금 나한테 어떤 판단을 해달라는 거야?"
+"선택지는 뭐가 있고 차이는?"
+"네 추천은?"
+
+▶ ④ 기획·전략형
+"왜 이걸 해야 하지?"
+"그래서 네 안은?"
+"어떻게 실행할 건데?"
+"그래서 나한테 뭘 결정해 달라는 거야?"
+
+■ 3) 답변 처리 방식
+사용자의 실제 답변을 보고용 문장으로 즉시 정제한다.
+장황한 설명은 제거하고 판단·결정에 필요한 정보만 남긴다.
+
+📤 출력 형식
+1) 구두 보고 멘트 (방식에 따라)
+   - 30초: 5문장 이내
+   - 1~2분: 6~7문장
+   - 2~3분: 8~10문장
+2) 핵심 요약 3줄
+3) (추가 필요 정보) 체크리스트
+
+⚠️ 절대 규칙
+- 모든 보고는 '상사의 질문 → 그에 대한 답' 구조
+- 모든 출력은 '결론 → 근거 → 시사점(요청)' 흐름
+- 불필요한 배경 설명 제거, 판단·결정 정보만
+
+🔥 시작
+아래 형식으로 입력하면 바로 시작합니다:
+1) 보고 주제: (예: 3분기 예약률 분석 결과)
+2) 보고 대상: (예: 영업본부장)
+3) 보고 방식: (예: 1~2분 구두)</div>
+        <div class="start-line">
+          <span class="sl-label">시작 입력 형식</span>
+          <span class="sl-text">1) 보고 주제: ___ / 2) 보고 대상: ___ / 3) 보고 방식: ___</span>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <table class="job-table">
+          <thead><tr><th>직군</th><th>리사 실습 보고 주제 (더미)</th><th>유형</th><th>방식</th></tr></thead>
+          <tbody>
+            <tr><td><span class="job-tag">상품기획</span></td><td>분기 베스트 상품 인사이트 → 본부장</td><td>현황 공유형</td><td>PPT</td></tr>
+            <tr><td><span class="job-tag">영업</span></td><td>핵심 거래선 매출 분석 → 영업본부장</td><td>현황 공유형</td><td>1~2분 구두</td></tr>
+            <tr><td><span class="job-tag">예약·발권</span></td><td>노선별 예약률 분석 → 임원</td><td>판단 요청형</td><td>문서(A4)</td></tr>
+            <tr><td><span class="job-tag">경영지원·인사</span></td><td>부서별 예산 집행 분석 → 대표</td><td>판단 요청형</td><td>PPT</td></tr>
+            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td>월간 VOC 트렌드 → CS팀장</td><td>현황 공유형</td><td>1~2분 구두</td></tr>
+            <tr><td><span class="job-tag">카지노·VIP</span></td><td>VIP 운영 인사이트 → 본부장</td><td>기획·전략형</td><td>PPT</td></tr>
+            <tr><td><span class="job-tag">IT·시스템</span></td><td>시스템 장애 분석 → IT 본부장</td><td>판단 요청형</td><td>문서(A4)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- HINT -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge coral">힌</div>
+      <h3>힌트 — 강사 시연 예시 (Phase 4)</h3>
+    </div>
+    <div class="section-body">
+      <div class="hint-card">
+        <div class="hint-label">AI 분석 → 리사 연결 시연</div>
+        <div class="hint-title">영업팀 — 분기 거래선 매출 더미 분석 → 본부장 구두 보고</div>
+        <ul>
+          <li><strong>AI 분석 질문:</strong> "이 거래선별 더미 매출 데이터에서 집중 관리 필요 거래선 Top 3와 이유를 찾아줘"</li>
+          <li><strong>인사이트 3줄 추출 후 리사 입력:</strong></li>
+        </ul>
+        <div class="hint-highlight">
+          1) 보고 주제: 3분기 핵심 거래선 매출 분석 — A사 급락, B사 급등<br>
+          2) 보고 대상: 영업본부장<br>
+          3) 보고 방식: 1~2분 구두<br>
+          <br>
+          → 리사가 "현황 공유형"으로 진단 → 상사 질문 4개 제시 → 인사이트 3줄로 답변 → 1~2분 구두 보고 멘트 자동 생성
+        </div>
+      </div>
+      <div class="hint-card">
+        <div class="hint-label">종합 자기선언 (Phase 4 마무리)</div>
+        <ul>
+          <li>오늘 4 Phase에서 가장 당장 써먹을 도구 1개를 골라보세요</li>
+          <li>내일 당장 어느 업무에 어떻게 쓸 건지 한 문장으로 말해보세요</li>
+          <li>부서별 대표 1명이 30초 발표 → 전체 공유</li>
+        </ul>
+        <div class="hint-highlight">예: "저는 메일 마스터를 써서 다음 주 일본 랜드사 호텔 블록 추가 요청 메일을 만들어보겠습니다."</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function switchTab(idx) {
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function copyPrompt(btn, id) {
+  const el = document.getElementById(id);
+  const text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '복사 완료!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  }).catch(() => {
+    const range = document.createRange();
+    range.selectNode(el);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+    btn.textContent = '복사 완료!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
