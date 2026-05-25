@@ -702,6 +702,7 @@
   <button class="tab-btn" role="tab" onclick="switchTab(3)">Phase 3<br>정보통합</button>
   <button class="tab-btn" role="tab" onclick="switchTab(4)">Phase 4<br>데이터·보고</button>
   <button class="tab-btn" role="tab" onclick="switchTab(5)">Phase 5<br>나만의 챗봇</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(6)">Phase 6<br>Gemini 특화</button>
 </nav>
 <div class="content-wrapper">
 
@@ -2852,6 +2853,199 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
         <div class="sw-label">핵심</div>
         프롬프트를 잘 쓰는 법을 배우는 것보다 — <strong>AI가 내 프롬프트를 잘 쓰게 시키는 법</strong>이 더 빠르다.<br>
         <span style="font-size:12px;color:var(--graphite);">이 기법은 어떤 AI에서도 동일하게 작동합니다 — Gemini, ChatGPT, Claude 모두 가능.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ PHASE 6 ═══ -->
+<div class="tab-panel" id="panel-6">
+<div class="container">
+
+  <div class="phase-intro">
+    <div class="phase-tag">Phase 6</div>
+    <h2>Gemini만 되는 것들<br>— 검색·지도·항공·호텔·딥리서치·캔버스</h2>
+    <p class="lead">
+      ChatGPT·Claude와 달리 Gemini는 <strong>Google 생태계에 직접 연결</strong>됩니다. 실시간 검색·구글 지도·항공권·호텔·유튜브·딥리서치·캔버스가 프롬프트 한 줄로 작동합니다. 롯데관광 업무에 바로 쓸 수 있는 예제로 실습합니다.
+    </p>
+    <div class="output-box">
+      <span class="label">산출물</span>
+      <span class="value">검색 뉴스 브리핑 · 지도 동선 · 항공·호텔 옵션 · 유튜브 링크 · 딥리서치 기반 웹페이지·인포그래픽·슬라이드</span>
+    </div>
+  </div>
+
+  <!-- 1. 검색 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">1</div>
+      <h3>Gemini로 실시간 검색하기</h3>
+      <span class="section-sub">뉴스 브리핑 자동 생성</span>
+    </div>
+    <div class="section-body">
+      <div class="why-box" style="margin-bottom:14px;">
+        <div class="why-label">왜 쓰는가</div>
+        <div class="why-problem">매일 아침 업계 뉴스를 직접 찾아 읽는 데 20~30분. Gemini는 실시간 웹 검색 결과를 프롬프트 한 줄로 요약해 줍니다.</div>
+        <div class="why-solution">→ 출처 링크 포함, 원하는 키워드·지역·분야로 필터링 가능</div>
+      </div>
+      <div class="prompt-card">
+        <div class="pc-label">PROMPT — 업계 뉴스 브리핑</div>
+        <div class="pc-body">오늘 발생한 주요 관광 업계 뉴스를 검색해줘. 특히 일본·동남아·유럽 패키지여행 시장에 영향을 줄 수 있는 내용 위주로 정리하고, 각 뉴스의 출처 링크도 함께 제시해줘.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 구글 지도 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">2</div>
+      <h3>Gemini로 구글 지도 활용하기</h3>
+      <span class="section-sub">선택 관광 옵션 발굴 · 일정 동선 최적화</span>
+    </div>
+    <div class="section-body">
+      <div class="why-box" style="margin-bottom:14px;">
+        <div class="why-label">왜 쓰는가</div>
+        <div class="why-problem">패키지 일정 짤 때 구글 지도·리뷰를 직접 뒤지며 수동으로 동선 짜는 데 수 시간. Gemini는 구글 지도 데이터를 직접 조회해 최적 동선과 랜드마크를 자동 구성합니다.</div>
+        <div class="why-solution">→ 선택 관광 옵션 리서치 · 유럽·일본 패키지 일정 초안 작성에 바로 활용 가능</div>
+      </div>
+      <div class="prompt-card" style="margin-bottom:10px;">
+        <div class="pc-label">PROMPT A — 선택 관광 맛집 발굴 (일본 패키지 기획용)</div>
+        <div class="pc-body">일본 오사카에서 평점이 높고 역사가 오래된 라멘집을 구글 지도에서 찾아줘. 도톤보리 인근 위주로, 현지인 리뷰가 많은 곳으로 3개만 추려줘.</div>
+      </div>
+      <div class="prompt-card">
+        <div class="pc-label">PROMPT B — 유럽 패키지 일정 동선 최적화</div>
+        <div class="pc-body">로마에서 나폴리, 바티칸, 피렌체를 관광하기에 최적의 동선과 주요 랜드마크를 정리해줘. 각 지역에 하루씩 머물 거야. 3일간 코스를 일자별·시간별로 최적화해서 구글 지도에 표시해줘.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 항공편 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">3</div>
+      <h3>Gemini로 최저가 항공편 찾기</h3>
+      <span class="section-sub">상품 원가 분석 · 노선 기획 참고</span>
+    </div>
+    <div class="section-body">
+      <div class="why-box" style="margin-bottom:14px;">
+        <div class="why-label">왜 쓰는가</div>
+        <div class="why-problem">항공권 최저가를 스카이스캐너·네이버 등 여러 사이트에서 따로 조회하며 비교하는 수작업. Gemini는 Google Flights 데이터를 직접 조회해 경유지·날짜별 최저가를 한눈에 정리합니다.</div>
+        <div class="why-solution">→ 신규 노선 기획 시 원가 구조 파악, 경쟁사 상품 단가 분석에 활용</div>
+      </div>
+      <div class="prompt-card">
+        <div class="pc-label">PROMPT — 경유 노선 최저가 조회 (신상품 기획 참고용)</div>
+        <div class="pc-body">2026년 8월에 두바이를 경유해서 런던으로 가는 가장 저렴한 이코노미 왕복 항공권을 찾아줘. 출발은 인천이고, 항공사·가격·경유 시간을 비교해서 표로 정리해줘.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 호텔 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">4</div>
+      <h3>Gemini로 최저가 호텔·료칸 찾기</h3>
+      <span class="section-sub">프리미엄 패키지 숙소 옵션 리서치</span>
+    </div>
+    <div class="section-body">
+      <div class="why-box" style="margin-bottom:14px;">
+        <div class="why-label">왜 쓰는가</div>
+        <div class="why-problem">일본 료칸·유럽 부티크 호텔 등 특화 숙소는 직접 찾기 어렵고 시간이 많이 걸립니다. Gemini는 Google Hotels 데이터와 리뷰를 바탕으로 조건별 최적 숙소를 즉시 추려줍니다.</div>
+        <div class="why-solution">→ 테마 패키지(온천·미식·역사) 숙소 옵션 리서치, 고객 제안서 초안에 바로 활용</div>
+      </div>
+      <div class="prompt-card">
+        <div class="pc-label">PROMPT — 프리미엄 일본 패키지 숙소 리서치</div>
+        <div class="pc-body">삿포로에 온천이 있는 최저가 료칸을 찾아줘. 가이세키 디너를 즐길 수 있고, 역사가 깊을수록 좋아. 1박 2식 기준 가격과 체크인 가능 날짜도 함께 알려줘.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. 유튜브 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">5</div>
+      <h3>Gemini로 맞춤형 유튜브 영상 찾기</h3>
+      <span class="section-sub">채널 분석 · 프로모션 영상 리서치</span>
+    </div>
+    <div class="section-body">
+      <div class="why-box" style="margin-bottom:14px;">
+        <div class="why-label">왜 쓰는가</div>
+        <div class="why-problem">유튜브 검색으로 자사 채널 인기 영상이나 경쟁사 프로모션 영상을 찾으려면 직접 스크롤하며 확인해야 합니다. Gemini는 유튜브 데이터를 조회해 조건에 맞는 영상과 링크를 바로 제시합니다.</div>
+        <div class="why-solution">→ 자사 콘텐츠 성과 파악, 시즌별 프로모션 영상 레퍼런스 수집에 활용</div>
+      </div>
+      <div class="prompt-card" style="margin-bottom:10px;">
+        <div class="pc-label">PROMPT A — 자사 채널 인기 영상 분석</div>
+        <div class="pc-body">롯데관광 유튜브 채널에서 가장 조회수가 많고 인기 있는 영상을 5개 찾아줘. 영상 제목·조회수·영상 링크를 함께 정리해줘.</div>
+      </div>
+      <div class="prompt-card">
+        <div class="pc-label">PROMPT B — 시즌 프로모션 영상 리서치</div>
+        <div class="pc-body">롯데관광 유튜브 채널에서 그리스 여행 프로모션 영상을 찾아줘. 영상 링크와 주요 내용을 간략히 요약해줘.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. 딥리서치 + 캔버스 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">6</div>
+      <h3>딥리서치 → 캔버스로 결과물 만들기</h3>
+      <span class="section-sub">웹페이지 · 인포그래픽 · 슬라이드 자동 생성</span>
+    </div>
+    <div class="section-body">
+      <div class="why-box" style="margin-bottom:14px;">
+        <div class="why-label">왜 쓰는가</div>
+        <div class="why-problem">시장 조사를 해도 보고서·발표 자료로 만드는 데 추가로 수 시간. Gemini 딥리서치는 수십 개 출처를 종합 분석하고, 캔버스 기능으로 그 결과를 웹페이지·인포그래픽·슬라이드까지 한 번에 만들어줍니다.</div>
+        <div class="why-solution">→ 시장 조사 → 보고 자료까지 원스톱. 팀장 보고·기획 제안서 초안으로 바로 활용</div>
+      </div>
+
+      <div class="practice-steps">
+        <div class="ps-item">
+          <div class="ps-num">1</div>
+          <div class="ps-content">
+            <div class="ps-title">딥리서치 실행</div>
+            <div class="ps-desc">Gemini 좌측 메뉴 → <strong>딥리서치</strong> 선택 후 아래 프롬프트 입력. 수십 개 웹 페이지를 분석해 종합 보고서를 생성합니다 (2~5분 소요).</div>
+            <div class="prompt-card" style="margin-top:10px;">
+              <div class="pc-label">PROMPT — 딥리서치</div>
+              <div class="pc-body">2026년 하반기 일본 패키지여행 시장 트렌드를 딥리서치해줘. 주요 여행 수요 변화, 인기 여행지 TOP 5, 경쟁사 주력 상품 현황, 롯데관광이 주목해야 할 기회 요인을 포함해서 정리해줘.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">2</div>
+          <div class="ps-content">
+            <div class="ps-title">캔버스로 웹페이지 만들기</div>
+            <div class="ps-desc">딥리서치 결과가 나온 <strong>같은 대화창</strong>에서 이어서 입력.</div>
+            <div class="prompt-card" style="margin-top:10px;">
+              <div class="pc-label">PROMPT — 웹페이지 생성</div>
+              <div class="pc-body">딥리서치 결과를 바탕으로 팀장에게 보고할 수 있는 깔끔한 웹페이지를 캔버스로 만들어줘. 핵심 인사이트와 차트가 포함되도록 해줘.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">3</div>
+          <div class="ps-content">
+            <div class="ps-title">인포그래픽 만들기</div>
+            <div class="prompt-card" style="margin-top:8px;">
+              <div class="pc-label">PROMPT — 인포그래픽 생성</div>
+              <div class="pc-body">같은 내용을 한 장짜리 인포그래픽으로 만들어줘. 수치와 키워드 중심으로 시각적으로 정리해줘.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">4</div>
+          <div class="ps-content">
+            <div class="ps-title">캔버스로 슬라이드 생성하기</div>
+            <div class="prompt-card" style="margin-top:8px;">
+              <div class="pc-label">PROMPT — 슬라이드 생성</div>
+              <div class="pc-body">딥리서치 결과를 3장짜리 보고용 슬라이드로 만들어줘. 1장: 시장 현황 요약, 2장: 기회 요인 TOP 3, 3장: 롯데관광 제언.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="so-what" style="margin-top:16px;">
+        <div class="sw-label">핵심 흐름</div>
+        딥리서치 (2~5분) → 웹페이지 → 인포그래픽 → 슬라이드 — <strong>같은 대화창에서 이어서 요청</strong>하면 됩니다. AI가 딥리서치 내용을 기억하고 있어 매번 설명할 필요가 없습니다.
       </div>
     </div>
   </div>
