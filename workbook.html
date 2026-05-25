@@ -999,34 +999,74 @@
   <div class="section-card">
     <div class="section-header">
       <div class="step-badge blue">지도</div>
-      <h3>이번 강의 4 Phase 로드맵</h3>
+      <h3>이번 강의 Phase 로드맵</h3>
     </div>
     <div class="section-body">
-      <div class="concept-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px,1fr));">
-        <div class="concept-item">
-          <div class="ci-label">Phase 1</div>
-          <div class="ci-title">내 콘텐츠 통합</div>
-          <div class="ci-desc">프롬프트 마스터 + 메일 마스터<br>Gemini</div>
+
+      <!-- ChatGPT 그룹 -->
+      <div style="margin-bottom:6px;">
+        <span style="font-size:13px;font-weight:700;color:var(--graphite);letter-spacing:0.3px;">ChatGPT 주력</span>
+      </div>
+      <div class="concept-grid" style="grid-template-columns: repeat(3,1fr);margin-bottom:16px;">
+        <div class="concept-item" style="border-left-color:var(--blue);">
+          <div class="ci-label" style="color:var(--blue);">Phase 1</div>
+          <div class="ci-title">프롬프트 기초</div>
+          <div class="ci-desc">프롬프트 마스터 + 메일 마스터<br>실무 문서·비즈니스 메일</div>
         </div>
-        <div class="concept-item">
-          <div class="ci-label">Phase 2</div>
-          <div class="ci-title">내 문서 톤 잡기</div>
-          <div class="ci-desc">기획 방향성 마스터 + Tona + 카피 마스터<br>Gemini</div>
+        <div class="concept-item" style="border-left-color:var(--blue);">
+          <div class="ci-label" style="color:var(--blue);">Phase 2</div>
+          <div class="ci-title">보고서·카피</div>
+          <div class="ci-desc">기획 방향성 마스터 + Tona + 카피 마스터<br>보고서·광고 카피</div>
         </div>
-        <div class="concept-item">
-          <div class="ci-label">Phase 3</div>
-          <div class="ci-title">내 자료 학습</div>
-          <div class="ci-desc">NotebookLM + Perplexity<br>정보 통합·검증</div>
-        </div>
-        <div class="concept-item">
-          <div class="ci-label">Phase 4</div>
+        <div class="concept-item" style="border-left-color:var(--blue);">
+          <div class="ci-label" style="color:var(--blue);">Phase 4</div>
           <div class="ci-title">데이터 → 보고</div>
-          <div class="ci-desc">AI 분석 + 리사(ReSa)<br>보고 스토리라인</div>
+          <div class="ci-desc">CSV 분석 + 차트 + 리사(ReSa)<br>Word 보고서 자동 생성</div>
         </div>
       </div>
+
+      <!-- NotebookLM + Perplexity 그룹 -->
+      <div style="margin-bottom:6px;">
+        <span style="font-size:13px;font-weight:700;color:var(--graphite);letter-spacing:0.3px;">NotebookLM + Perplexity 주력</span>
+      </div>
+      <div class="concept-grid" style="grid-template-columns: repeat(3,1fr);margin-bottom:16px;">
+        <div class="concept-item" style="border-left-color:#0fa336;grid-column:span 3;">
+          <div class="ci-label" style="color:#0fa336;">Phase 3</div>
+          <div class="ci-title">내 자료 학습 + 외부 정보 검증</div>
+          <div class="ci-desc">NotebookLM(내 자료 업로드 → 할루시네이션 없는 답변) + Perplexity(출처 붙는 웹 리서치)</div>
+        </div>
+      </div>
+
+      <!-- Gemini 그룹 -->
+      <div style="margin-bottom:6px;">
+        <span style="font-size:13px;font-weight:700;color:var(--graphite);letter-spacing:0.3px;">Gemini 주력</span>
+      </div>
+      <div class="concept-grid" style="grid-template-columns: repeat(2,1fr);">
+        <div class="concept-item" style="border-left-color:#c96000;">
+          <div class="ci-label" style="color:#c96000;">Phase 5</div>
+          <div class="ci-title">나만의 챗봇</div>
+          <div class="ci-desc">Gems — 업무 맞춤 AI 만들기<br>반복 작업 자동화</div>
+        </div>
+        <div class="concept-item" style="border-left-color:#c96000;">
+          <div class="ci-label" style="color:#c96000;">Phase 6</div>
+          <div class="ci-title">Gemini 특화 기능</div>
+          <div class="ci-desc">딥리서치 + 캔버스 + 지도·항공·호텔 연동</div>
+        </div>
+        <div class="concept-item" style="border-left-color:#c96000;">
+          <div class="ci-label" style="color:#c96000;">Phase 7</div>
+          <div class="ci-title">이미지·영상 생성</div>
+          <div class="ci-desc">텍스트 → 이미지 → 동영상<br>매거진 표지·3D 목업</div>
+        </div>
+        <div class="concept-item" style="border-left-color:#c96000;">
+          <div class="ci-label" style="color:#c96000;">Phase 8</div>
+          <div class="ci-title">이미지 합성</div>
+          <div class="ci-desc">의상·목업·배경 합성<br>여러 이미지 → 하나로</div>
+        </div>
+      </div>
+
       <div class="so-what" style="margin-top:14px;">
-        <div class="sw-label">4 Phase 끝에 손에 들고 나가는 것</div>
-        실무 문서 1건 · 보고서 또는 카피 1건 · 정보 검증 결과 1건 · 보고 멘트 1건 — <strong>총 4개의 내 업무 결과물</strong>
+        <div class="sw-label">강의 끝에 손에 들고 나가는 것</div>
+        실무 문서·메일 · 보고서·카피 · 데이터 분석 보고서 · 내 자료 기반 AI · 나만의 챗봇 · 이미지·영상·합성 결과물
       </div>
     </div>
   </div>
