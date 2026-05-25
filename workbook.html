@@ -581,14 +581,239 @@
 </header>
 
 <nav class="tab-nav" role="tablist">
-  <button class="tab-btn active" role="tab" onclick="switchTab(0)">Phase 1 — 프롬프트</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(1)">Phase 2 — 문서·카피</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(2)">Phase 3 — 정보통합</button>
-  <button class="tab-btn" role="tab" onclick="switchTab(3)">Phase 4 — 데이터·보고</button>
+  <button class="tab-btn active" role="tab" onclick="switchTab(0)">Phase 0 — 강의 도입</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(1)">Phase 1 — 프롬프트</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(2)">Phase 2 — 문서·카피</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(3)">Phase 3 — 정보통합</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(4)">Phase 4 — 데이터·보고</button>
 </nav>
 
-<!-- ═══════════════════════════════════════════════ PHASE 1 ═══ -->
+<!-- ═══════════════════════════════════════════════ PHASE 0 ═══ -->
 <div class="tab-panel active" id="panel-0">
+<div class="container">
+
+  <div class="phase-intro">
+    <div class="phase-tag">Phase 0</div>
+    <h2>AI 신입사원이 들어왔다<br>— 우리는 무엇을 준비해야 하나</h2>
+    <p class="lead">
+      오늘 강의는 AI 도구 소개가 아닙니다. <strong>내 업무에 바로 쓸 결과물 4개를 손에 들고 나가는 것</strong>이 목표입니다. Phase 0은 그 시작 — 왜 지금까지 AI가 안 됐는지, 어떻게 바꿀 건지를 짚고 갑니다.
+    </p>
+    <div class="output-box">
+      <span class="label">4 Phase 산출물</span>
+      <span class="value">Phase 1 실무 문서 + Phase 2 보고서·카피 + Phase 3 정보 검증 + Phase 4 보고 멘트</span>
+    </div>
+  </div>
+
+  <!-- 공감 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">01</div>
+      <h3>이런 경험 있으신가요?</h3>
+    </div>
+    <div class="section-body">
+      <div class="concept-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px,1fr));">
+        <div class="concept-item" style="border-left-color: var(--coral);">
+          <div class="ci-label" style="color:var(--coral);">좌절 ①</div>
+          <div class="ci-desc">"이 기능이 대체 내 업무랑 무슨 상관이지?"</div>
+        </div>
+        <div class="concept-item" style="border-left-color: var(--coral);">
+          <div class="ci-label" style="color:var(--coral);">좌절 ②</div>
+          <div class="ci-desc">"유튜버들이 시킨 대로 해도 보고서가 안 예뻐."</div>
+        </div>
+        <div class="concept-item" style="border-left-color: var(--coral);">
+          <div class="ci-label" style="color:var(--coral);">좌절 ③</div>
+          <div class="ci-desc">"AI가 대답은 잘하는데… 내가 원하는 결과가 안 나와."</div>
+        </div>
+      </div>
+      <div class="so-what" style="margin-top:14px;">
+        <div class="sw-label">결과</div>
+        → "내 일은 AI로는 못하지 뭐" → <strong>조용한 안도감</strong> → 그냥 하던 대로<br>
+        이 좌절이 어디서 오는지, 어떻게 해결하는지를 봅니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 사고력 경고 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">02</div>
+      <h3>AI가 들어오면 가장 먼저 사라지는 것</h3>
+    </div>
+    <div class="section-body">
+      <table class="job-table">
+        <thead><tr><th>상황</th><th>결과</th></tr></thead>
+        <tbody>
+          <tr><td>"보고는 빨라졌다"</td><td>회의에서 할 말이 줄어들었다</td></tr>
+          <tr><td>"결과물은 있다"</td><td>'왜 이렇게 했죠?' 앞에서 입이 안 열린다</td></tr>
+          <tr><td>"어디선가 본 문장이다"</td><td>왜 이 말을 썼는지 모르겠다</td></tr>
+        </tbody>
+      </table>
+      <div class="hint-card" style="margin-top:14px; border-left:4px solid var(--coral);">
+        <div class="hint-label" style="color:var(--coral);">책 p.67 직접 인용</div>
+        <div class="hint-title">"준비 없이 맞이하면, 가장 먼저 사라지는 건 업무량이 아니라 사고력이다"</div>
+      </div>
+      <div class="so-what" style="margin-top:12px;">
+        <div class="sw-label">오늘의 목표</div>
+        AI에 실려 이동된 <strong>화물</strong>이 아니라 — AI를 지시하는 <strong>기수</strong>가 되는 법
+      </div>
+    </div>
+  </div>
+
+  <!-- AI 증폭기 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">03</div>
+      <h3>AI는 증폭기다</h3>
+    </div>
+    <div class="section-body">
+      <div class="compare-grid">
+        <div class="compare-col after">
+          <div class="cc-label">일잘러 + AI</div>
+          <div class="cc-text">수십 명의 보조자 효과<br>업무 10배 가속</div>
+        </div>
+        <div class="compare-col before">
+          <div class="cc-label">역량 없이 + AI</div>
+          <div class="cc-text">쓰레기를 <strong>10배 빨리</strong> 생산<br>Garbage In, Garbage Out × 10</div>
+        </div>
+      </div>
+      <div class="hint-card" style="margin-top:14px;">
+        <div class="hint-label">책 p.72 직접 인용</div>
+        <div class="hint-title">"AI는 쓰레기를 만드는 속도도 10배 빠르다"</div>
+        <div style="font-size:13px;color:var(--charcoal);margin-top:6px;">24시간 인턴 군단이 배치됐습니다. 필요한 건 도구 사용법이 아니라 <strong>지시법</strong>입니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4유형 진단 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">04</div>
+      <h3>나는 지금 어디에 있나? — AI 활용 4유형</h3>
+      <span class="section-sub">옆 사람과 30초</span>
+    </div>
+    <div class="section-body">
+      <table class="job-table">
+        <thead><tr><th>유형</th><th>특징</th><th>한 줄 진단</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="job-tag">검색형</span></td>
+            <td>AI를 구글처럼 쓴다</td>
+            <td>정보 도구, 업무 파트너 아님</td>
+          </tr>
+          <tr>
+            <td><span class="job-tag">단순 지시형</span></td>
+            <td>"보고서 만들어줘"만 던진다</td>
+            <td>"틀린 말은 아닌데 뭔가 아니다"</td>
+          </tr>
+          <tr>
+            <td><span class="job-tag">대화형</span></td>
+            <td>질문-답변-수정 반복</td>
+            <td>역량 있는 사람에게 효과적</td>
+          </tr>
+          <tr>
+            <td><span class="job-tag" style="background:var(--blue);color:#fff;">사고 설계형</span></td>
+            <td>AI가 먼저 질문하게 만든다</td>
+            <td><strong>오늘의 목표</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="so-what" style="margin-top:14px;">
+        <div class="sw-label">책의 핵심</div>
+        "차이는 기술이 아니라 <strong>사고의 주도권을 누가 쥐고 있느냐</strong>에 있다"
+      </div>
+    </div>
+  </div>
+
+  <!-- 도구 안내 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">05</div>
+      <h3>오늘 쓸 도구 / 각 Phase 배치</h3>
+    </div>
+    <div class="section-body">
+      <table class="job-table">
+        <thead><tr><th>도구</th><th>강점</th><th>사용 Phase</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Gemini</strong></td><td>Google 생태계 + 무료</td><td><span class="job-tag" style="background:var(--blue);color:#fff;">Phase 1·2·4 주력</span></td></tr>
+          <tr><td><strong>NotebookLM</strong></td><td>내 자료로 전용 AI</td><td><span class="job-tag" style="background:var(--blue);color:#fff;">Phase 3 주력</span></td></tr>
+          <tr><td>Perplexity</td><td>출처 붙는 리서치</td><td><span class="tag">Phase 3 보조</span></td></tr>
+          <tr><td>Claude</td><td>Claude Pro·심화 사용자 최적화</td><td><span class="tag">보너스</span></td></tr>
+          <tr><td>ChatGPT</td><td>데이터·자동화</td><td><span class="tag">유료 구독자 실습 활용 가능</span></td></tr>
+        </tbody>
+      </table>
+      <div class="hint-card" style="margin-top:14px;">
+        <div class="hint-label">실습 도구 선택 안내</div>
+        <div style="font-size:13px;color:var(--ink);line-height:1.7;">
+          강사 시연은 Gemini로 합니다.<br>
+          실습은 어떤 AI든 됩니다 — <strong>유료 구독 있으신 분은 그걸</strong>, 없으신 분은 ChatGPT·Gemini 익숙한 걸로 하시면 됩니다.<br>
+          <strong>프롬프트 원리는 도구가 바뀌어도 동일</strong>합니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 보안 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge coral">⚠</div>
+      <h3>딱 한 가지 보안 원칙 — 강의 내내 적용</h3>
+    </div>
+    <div class="section-body">
+      <div class="hint-card" style="background:#fff5f5;border:1px solid #ffd0d0;">
+        <div class="hint-label" style="color:var(--coral);">실제 사례 — 삼성전자 ChatGPT 유출 (2023)</div>
+        <div style="font-size:13px;color:var(--ink);line-height:1.7;margin-top:4px;">
+          반도체 소스코드·회의 내용이 ChatGPT를 통해 외부 노출. 이후 삼성은 사내 AI 사용 전면 제한.<br>
+          <strong>AI 서버는 내가 입력한 내용을 학습에 활용할 수 있습니다.</strong>
+        </div>
+      </div>
+      <div class="warning-box" style="margin-top:12px;">
+        <strong>⚠️ 어떤 AI든 — 실제 고객 정보·사내 기밀·실제 매출 수치 입력 절대 금지</strong><br>
+        오늘 모든 실습은 가상의 더미 데이터로만 진행합니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 강의 로드맵 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">지도</div>
+      <h3>오늘 4 Phase 로드맵</h3>
+    </div>
+    <div class="section-body">
+      <div class="concept-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px,1fr));">
+        <div class="concept-item">
+          <div class="ci-label">Phase 1</div>
+          <div class="ci-title">내 콘텐츠 통합</div>
+          <div class="ci-desc">프롬프트 마스터 + 메일 마스터<br>Gemini</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">Phase 2</div>
+          <div class="ci-title">내 문서 톤 잡기</div>
+          <div class="ci-desc">기획 방향성 마스터 + Tona + 카피 마스터<br>Gemini</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">Phase 3</div>
+          <div class="ci-title">내 자료 학습</div>
+          <div class="ci-desc">NotebookLM + Perplexity<br>정보 통합·검증</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">Phase 4</div>
+          <div class="ci-title">데이터 → 보고</div>
+          <div class="ci-desc">AI 분석 + 리사(ReSa)<br>보고 스토리라인</div>
+        </div>
+      </div>
+      <div class="so-what" style="margin-top:14px;">
+        <div class="sw-label">4 Phase 끝에 손에 들고 나가는 것</div>
+        실무 문서 1건 · 보고서 또는 카피 1건 · 정보 검증 결과 1건 · 보고 멘트 1건 — <strong>총 4개의 내 업무 결과물</strong>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ PHASE 1 ═══ -->
+<div class="tab-panel" id="panel-1">
 <div class="container">
 
   <div class="phase-intro">
