@@ -118,6 +118,23 @@
   }
   .sidebar-toggle:hover { color: var(--blue); }
 
+  .dl-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: var(--r-btn);
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s, opacity .15s;
+  }
+  .dl-btn:hover:not(:disabled) { background: var(--blue-bright); }
+  .dl-btn:disabled { opacity: .6; cursor: default; }
+
   .tab-btn {
     padding: 18px 18px 16px;
     border: none;
@@ -1984,13 +2001,13 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
         <table class="job-table">
           <thead><tr><th>직군</th><th>더미 자료 다운로드</th><th>NotebookLM 실습 질문 예시</th></tr></thead>
           <tbody>
-            <tr><td><span class="job-tag">상품기획</span></td><td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/01_%EC%83%81%ED%92%88%EA%B8%B0%ED%9A%8D%ED%8C%80_2026%EB%85%842%EB%B6%84%EA%B8%B0%EA%B8%B0%ED%9A%8D%ED%9A%8C%EC%9D%98%EB%A1%9D.md" target="_blank" class="tool-link primary" style="padding:3px 10px;font-size:11px;">다운로드 →</a></td><td>"이 회의록에서 오사카 단풍 신상품 론칭 일정과 담당자를 정리해줘"</td></tr>
-            <tr><td><span class="job-tag">영업</span></td><td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/02_%EC%98%81%EC%97%85%ED%8C%80_%EC%A3%BC%EA%B0%84%EC%97%85%EB%AC%B4%EB%B3%B4%EA%B3%A0_2026%EB%85%845%EC%9B%943%EC%A3%BC%EC%B0%A8.md" target="_blank" class="tool-link primary" style="padding:3px 10px;font-size:11px;">다운로드 →</a></td><td>"이 주간보고에서 이번 주 가장 위험한 거래선과 이유를 찾아줘"</td></tr>
-            <tr><td><span class="job-tag">예약·발권</span></td><td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/03_%EC%98%88%EC%95%BD%EB%B0%9C%EA%B6%8C%ED%8C%80_%ED%95%AD%EA%B3%B5%EA%B6%8C%EB%B3%80%EA%B2%BD%ED%99%98%EB%B6%88%EC%B2%98%EB%A6%AC%EB%A7%A4%EB%89%B4%EC%96%BC.md" target="_blank" class="tool-link primary" style="padding:3px 10px;font-size:11px;">다운로드 →</a></td><td>"출발 24시간 이내 환불 요청이 들어왔어. 처리 절차를 단계별로 알려줘"</td></tr>
-            <tr><td><span class="job-tag">경영지원·인사</span></td><td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/04_%EA%B2%BD%EC%98%81%EC%A7%80%EC%9B%90%ED%8C%80_2026%EB%85%841%EB%B6%84%EA%B8%B0%EB%B6%80%EC%84%9C%EC%9A%B4%EC%98%81%EB%B3%B4%EA%B3%A0.md" target="_blank" class="tool-link primary" style="padding:3px 10px;font-size:11px;">다운로드 →</a></td><td>"IT팀 예산 집행률이 낮은 이유와 차분기 계획을 요약해줘"</td></tr>
-            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/05_%EA%B3%A0%EA%B0%9D%EC%84%9C%EB%B9%84%EC%8A%A4%ED%8C%80_2026%EB%85%844%EC%9B%94VOC%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0.md" target="_blank" class="tool-link primary" style="padding:3px 10px;font-size:11px;">다운로드 →</a></td><td>"4월 반복 불만 TOP 3와 근본 원인을 정리해줘"</td></tr>
-            <tr><td><span class="job-tag">카지노·VIP</span></td><td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/06_%EC%B9%B4%EC%A7%80%EB%85%B8VIP%ED%8C%80_2026%EB%85%841%EB%B6%84%EA%B8%B0VIP%EC%9A%B4%EC%98%81%EB%B3%B4%EA%B3%A0.md" target="_blank" class="tool-link primary" style="padding:3px 10px;font-size:11px;">다운로드 →</a></td><td>"SILVER 등급 방문이 줄어드는 이유와 2분기 활성화 전략을 요약해줘"</td></tr>
-            <tr><td><span class="job-tag">IT·시스템</span></td><td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/07_IT%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%8C%80_2026%EB%85%841%EB%B6%84%EA%B8%B0%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9A%B4%EC%98%81%ED%98%84%ED%99%A9.md" target="_blank" class="tool-link primary" style="padding:3px 10px;font-size:11px;">다운로드 →</a></td><td>"2월 서비스 중단 원인과 재발 방지 조치를 알려줘"</td></tr>
+            <tr><td><span class="job-tag">상품기획</span></td><td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/01_%EC%83%81%ED%92%88%EA%B8%B0%ED%9A%8D%ED%8C%80_2026%EB%85%842%EB%B6%84%EA%B8%B0%EA%B8%B0%ED%9A%8D%ED%9A%8C%EC%9D%98%EB%A1%9D.md','01_상품기획팀_2026년2분기기획회의록.md')">다운로드 →</button></td><td>"이 회의록에서 오사카 단풍 신상품 론칭 일정과 담당자를 정리해줘"</td></tr>
+            <tr><td><span class="job-tag">영업</span></td><td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/02_%EC%98%81%EC%97%85%ED%8C%80_%EC%A3%BC%EA%B0%84%EC%97%85%EB%AC%B4%EB%B3%B4%EA%B3%A0_2026%EB%85%845%EC%9B%943%EC%A3%BC%EC%B0%A8.md','02_영업팀_주간업무보고_2026년5월3주차.md')">다운로드 →</button></td><td>"이 주간보고에서 이번 주 가장 위험한 거래선과 이유를 찾아줘"</td></tr>
+            <tr><td><span class="job-tag">예약·발권</span></td><td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/03_%EC%98%88%EC%95%BD%EB%B0%9C%EA%B6%8C%ED%8C%80_%ED%95%AD%EA%B3%B5%EA%B6%8C%EB%B3%80%EA%B2%BD%ED%99%98%EB%B6%88%EC%B2%98%EB%A6%AC%EB%A7%A4%EB%89%B4%EC%96%BC.md','03_예약발권팀_항공권변경환불처리매뉴얼.md')">다운로드 →</button></td><td>"출발 24시간 이내 환불 요청이 들어왔어. 처리 절차를 단계별로 알려줘"</td></tr>
+            <tr><td><span class="job-tag">경영지원·인사</span></td><td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/04_%EA%B2%BD%EC%98%81%EC%A7%80%EC%9B%90%ED%8C%80_2026%EB%85%841%EB%B6%84%EA%B8%B0%EB%B6%80%EC%84%9C%EC%9A%B4%EC%98%81%EB%B3%B4%EA%B3%A0.md','04_경영지원팀_2026년1분기부서운영보고.md')">다운로드 →</button></td><td>"IT팀 예산 집행률이 낮은 이유와 차분기 계획을 요약해줘"</td></tr>
+            <tr><td><span class="job-tag">VOC·고객서비스</span></td><td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/05_%EA%B3%A0%EA%B0%9D%EC%84%9C%EB%B9%84%EC%8A%A4%ED%8C%80_2026%EB%85%844%EC%9B%94VOC%EC%9B%94%EA%B0%84%EB%B3%B4%EA%B3%A0.md','05_고객서비스팀_2026년4월VOC월간보고.md')">다운로드 →</button></td><td>"4월 반복 불만 TOP 3와 근본 원인을 정리해줘"</td></tr>
+            <tr><td><span class="job-tag">카지노·VIP</span></td><td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/06_%EC%B9%B4%EC%A7%80%EB%85%B8VIP%ED%8C%80_2026%EB%85%841%EB%B6%84%EA%B8%B0VIP%EC%9A%B4%EC%98%81%EB%B3%B4%EA%B3%A0.md','06_카지노VIP팀_2026년1분기VIP운영보고.md')">다운로드 →</button></td><td>"SILVER 등급 방문이 줄어드는 이유와 2분기 활성화 전략을 요약해줘"</td></tr>
+            <tr><td><span class="job-tag">IT·시스템</span></td><td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/notebooklm_%EB%8D%94%EB%AF%B8%EC%9E%90%EB%A3%8C/07_IT%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%8C%80_2026%EB%85%841%EB%B6%84%EA%B8%B0%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9A%B4%EC%98%81%ED%98%84%ED%99%A9.md','07_IT시스템팀_2026년1분기시스템운영현황.md')">다운로드 →</button></td><td>"2월 서비스 중단 원인과 재발 방지 조치를 알려줘"</td></tr>
           </tbody>
         </table>
       </div>
@@ -2178,37 +2195,37 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
           <tbody>
             <tr>
               <td><span class="job-tag">상품기획</span></td>
-              <td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/01_%EC%83%81%ED%92%88%EA%B8%B0%ED%9A%8D_%EB%B6%84%EA%B8%B0%ED%8C%90%EB%A7%A4%ED%98%84%ED%99%A9.csv" target="_blank" class="tool-link primary" style="font-size:11px;padding:4px 8px;">다운로드 →</a></td>
+              <td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/01_%EC%83%81%ED%92%88%EA%B8%B0%ED%9A%8D_%EB%B6%84%EA%B8%B0%ED%8C%90%EB%A7%A4%ED%98%84%ED%99%A9.csv','01_상품기획_분기판매현황.csv')">다운로드 →</button></td>
               <td>"이 더미 데이터에서 성장률 상위 3개 노선을 분석하고, ① 분석 결과 텍스트 요약 ② 노선별 전분기 성장률 막대 차트 시각화 ③ 팀장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td>
             </tr>
             <tr>
               <td><span class="job-tag">영업</span></td>
-              <td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/02_%EC%98%81%EC%97%85_%EA%B1%B0%EB%9E%98%EC%84%A0%EB%B3%84%EB%A7%A4%EC%B6%9C%ED%98%84%ED%99%A9.csv" target="_blank" class="tool-link primary" style="font-size:11px;padding:4px 8px;">다운로드 →</a></td>
+              <td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/02_%EC%98%81%EC%97%85_%EA%B1%B0%EB%9E%98%EC%84%A0%EB%B3%84%EB%A7%A4%EC%B6%9C%ED%98%84%ED%99%A9.csv','02_영업_거래선별매출현황.csv')">다운로드 →</button></td>
               <td>"이 더미 데이터에서 집중 관리가 필요한 거래선을 분석하고, ① 위험 거래선 선정 이유 요약 ② 거래선별 매출 증감률 차트 시각화 ③ 영업본부장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td>
             </tr>
             <tr>
               <td><span class="job-tag">예약·발권</span></td>
-              <td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/03_%EC%98%88%EC%95%BD%EB%B0%9C%EA%B6%8C_%EB%85%B8%EC%84%A0%EB%B3%84%EC%98%88%EC%95%BD%ED%98%84%ED%99%A9.csv" target="_blank" class="tool-link primary" style="font-size:11px;padding:4px 8px;">다운로드 →</a></td>
+              <td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/03_%EC%98%88%EC%95%BD%EB%B0%9C%EA%B6%8C_%EB%85%B8%EC%84%A0%EB%B3%84%EC%98%88%EC%95%BD%ED%98%84%ED%99%A9.csv','03_예약발권_노선별예약현황.csv')">다운로드 →</button></td>
               <td>"이 더미 데이터에서 3분기 저조 노선을 분석하고, ① 저조 노선 선정 이유 요약 ② 노선별 예약률 비교 차트 시각화 ③ 팀장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td>
             </tr>
             <tr>
               <td><span class="job-tag">경영지원·인사</span></td>
-              <td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/04_%EA%B2%BD%EC%98%81%EC%A7%80%EC%9B%90_%EB%B6%80%EC%84%9C%EB%B3%84%EC%98%88%EC%82%B0%EC%A7%91%ED%96%89%ED%98%84%ED%99%A9.csv" target="_blank" class="tool-link primary" style="font-size:11px;padding:4px 8px;">다운로드 →</a></td>
+              <td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/04_%EA%B2%BD%EC%98%81%EC%A7%80%EC%9B%90_%EB%B6%80%EC%84%9C%EB%B3%84%EC%98%88%EC%82%B0%EC%A7%91%ED%96%89%ED%98%84%ED%99%A9.csv','04_경영지원_부서별예산집행현황.csv')">다운로드 →</button></td>
               <td>"이 더미 데이터에서 예산 집행 이상 항목을 분석하고, ① 이상 항목 및 원인 가설 요약 ② 부서별 예산 집행률 차트 시각화 ③ 본부장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td>
             </tr>
             <tr>
               <td><span class="job-tag">VOC·고객서비스</span></td>
-              <td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/05_%EA%B3%A0%EA%B0%9D%EC%84%9C%EB%B9%84%EC%8A%A4_VOC%ED%98%84%ED%99%A9.csv" target="_blank" class="tool-link primary" style="font-size:11px;padding:4px 8px;">다운로드 →</a></td>
+              <td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/05_%EA%B3%A0%EA%B0%9D%EC%84%9C%EB%B9%84%EC%8A%A4_VOC%ED%98%84%ED%99%A9.csv','05_고객서비스_VOC현황.csv')">다운로드 →</button></td>
               <td>"이 더미 데이터에서 반복 불만 패턴을 분석하고, ① VOC 유형별 건수 요약 및 우선 개선 항목 ② 유형별 VOC 건수 파이 차트 시각화 ③ 팀장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td>
             </tr>
             <tr>
               <td><span class="job-tag">카지노·VIP</span></td>
-              <td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/06_%EC%B9%B4%EC%A7%80%EB%85%B8VIP_%EB%93%B1%EA%B8%89%EB%B3%84%EC%9D%B4%EC%9A%A9%ED%98%84%ED%99%A9.csv" target="_blank" class="tool-link primary" style="font-size:11px;padding:4px 8px;">다운로드 →</a></td>
+              <td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/06_%EC%B9%B4%EC%A7%80%EB%85%B8VIP_%EB%93%B1%EA%B8%89%EB%B3%84%EC%9D%B4%EC%9A%A9%ED%98%84%ED%99%A9.csv','06_카지노VIP_등급별이용현황.csv')">다운로드 →</button></td>
               <td>"이 더미 데이터에서 활성화 전략이 필요한 VIP 등급을 분석하고, ① 등급별 방문 패턴 요약 ② 등급별 방문 빈도 차트 시각화 ③ 본부장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td>
             </tr>
             <tr>
               <td><span class="job-tag">IT·시스템</span></td>
-              <td><a href="https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/07_IT%EC%8B%9C%EC%8A%A4%ED%85%9C_%EC%9E%A5%EC%95%A0%EB%AC%B8%EC%9D%98%ED%98%84%ED%99%A9.csv" target="_blank" class="tool-link primary" style="font-size:11px;padding:4px 8px;">다운로드 →</a></td>
+              <td><button class="dl-btn" onclick="downloadFile('https://github.com/riedle03/lotte-ai-workbook/raw/master/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8C%A9/07_IT%EC%8B%9C%EC%8A%A4%ED%85%9C_%EC%9E%A5%EC%95%A0%EB%AC%B8%EC%9D%98%ED%98%84%ED%99%A9.csv','07_IT시스템_장애문의현황.csv')">다운로드 →</button></td>
               <td>"이 더미 데이터에서 우선 해결이 필요한 장애 유형을 분석하고, ① 장애 유형별 영향도 요약 ② 장애 유형별 건수 차트 시각화 ③ 팀장에게 바로 쓸 수 있는 한 줄 인사이트를 순서대로 출력해줘"</td>
             </tr>
           </tbody>
@@ -2673,6 +2690,31 @@ function switchTab(idx) {
   document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
   document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
   window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function downloadFile(url, filename) {
+  const btn = event.currentTarget;
+  const orig = btn.textContent;
+  btn.textContent = '다운로드 중…';
+  btn.disabled = true;
+  fetch(url)
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+    .then(blob => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+      btn.textContent = '완료!';
+      setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 1500);
+    })
+    .catch(() => {
+      window.open(url, '_blank');
+      btn.textContent = orig;
+      btn.disabled = false;
+    });
 }
 
 function copyPrompt(btn, id) {
