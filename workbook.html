@@ -1922,6 +1922,32 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
     </div>
   </div>
 
+  <!-- WHY -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge" style="background:var(--charcoal);">왜</div>
+      <h3>왜 NotebookLM인가 — 일반 AI와 무엇이 다른가</h3>
+    </div>
+    <div class="section-body">
+      <div class="why-box">
+        <div class="why-label">왜 필요한가</div>
+        <div class="why-problem">Gemini에게 "우리 팀 4월 회의록 요약해줘"라고 하면 모른다. AI는 그 자료를 본 적이 없기 때문이다. 내 부서 매뉴얼, 주간보고, 회의록은 인터넷 어디에도 없다. 일반 AI가 아무리 뛰어나도 내가 가진 자료로는 답할 수 없다.<br>
+        <em style="color:var(--graphite);font-size:12px;">"AI는 학습한 것만 안다. 내 부서 자료는 내가 직접 넣어줘야 한다"</em></div>
+        <div class="why-solution">→ NotebookLM: 내 자료를 직접 업로드 → AI가 그 내용만 기반으로 정확하게 답변 + 출처 인용까지 표시</div>
+      </div>
+      <div class="compare-grid" style="margin-top:14px;">
+        <div class="compare-col before">
+          <div class="cc-label">일반 AI (Gemini·ChatGPT)</div>
+          <div class="cc-text">"4월 매출 트렌드 분석해줘"<br>→ 일반적인 여행업 트렌드만 답함<br>→ 우리 팀 실제 수치는 모름</div>
+        </div>
+        <div class="compare-col after">
+          <div class="cc-label">NotebookLM (내 자료 업로드 후)</div>
+          <div class="cc-text">"4월 매출 트렌드 분석해줘"<br>→ 업로드한 보고서 기반으로 답변<br>→ 출처: 3페이지 표 2 인용 표시</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- CONCEPT -->
   <div class="section-card">
     <div class="section-header">
@@ -2148,6 +2174,13 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
       <span class="section-sub">더미 수치 → 인사이트 3줄</span>
     </div>
     <div class="section-body">
+      <div class="why-box" style="margin-bottom:16px;">
+        <div class="why-label">왜 필요한가</div>
+        <div class="why-problem">숫자는 있다. 엑셀 파일도 있다. 그런데 팀장은 "그래서 어쩌라는 거야?"를 묻는다. 피벗 돌리고 차트 만들고 인사이트 한 줄 쓰는 데 혼자 하면 30분~1시간. AI에 CSV 파일 하나 던지면 <strong>2분 안에 분석 + 차트 + 인사이트 3줄 + Word 보고서</strong>까지 나온다.<br>
+        <em style="color:var(--graphite);font-size:12px;">"데이터를 보는 사람이 아니라, 데이터로 말하는 사람이 되어야 한다"</em></div>
+        <div class="why-solution">→ CSV 업로드 → 직군별 분석 질문 → 차트 시각화 → Word 보고서 자동 생성 — 이번 Phase의 핵심 흐름</div>
+      </div>
+
       <div class="warning-box">
         <strong>⚠️ 보안 필수</strong> — 실제 매출·예약·고객 데이터 절대 입력 금지. 수치를 임의 변경한 더미 데이터 또는 강사 배포 자료만 사용.
       </div>
