@@ -3131,6 +3131,42 @@ function copyPrompt(btn, id) {
     setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
   });
 }
+
+// 모든 .prompt-card에 복사 버튼 자동 주입
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.prompt-card').forEach(card => {
+    const label = card.querySelector('.pc-label');
+    const body  = card.querySelector('.pc-body');
+    if (!label || !body) return;
+    // 이미 버튼 있으면 스킵
+    if (label.querySelector('.copy-btn')) return;
+    label.style.display = 'flex';
+    label.style.justifyContent = 'space-between';
+    label.style.alignItems = 'center';
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = '복사';
+    btn.onclick = () => {
+      const text = body.innerText || body.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '복사 완료!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+      }).catch(() => {
+        const range = document.createRange();
+        range.selectNode(body);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+        btn.textContent = '복사 완료!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+      });
+    };
+    label.appendChild(btn);
+  });
+});
 </script>
 </body>
 </html>
