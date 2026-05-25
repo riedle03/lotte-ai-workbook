@@ -83,7 +83,7 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    overflow-y: auto;
+    overflow: hidden;
     position: sticky;
     top: 0;
     height: 100vh;
@@ -91,7 +91,32 @@
     flex-shrink: 0;
     z-index: 100;
     box-shadow: var(--shadow);
+    transition: width .2s ease;
   }
+  .tab-nav.collapsed {
+    width: 44px;
+  }
+  .tab-nav.collapsed .tab-btn {
+    display: none;
+  }
+
+  .sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px 14px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--graphite);
+    flex-shrink: 0;
+    transition: color .15s;
+  }
+  .tab-nav.collapsed .sidebar-toggle {
+    justify-content: center;
+  }
+  .sidebar-toggle:hover { color: var(--blue); }
 
   .tab-btn {
     padding: 18px 18px 16px;
@@ -653,6 +678,7 @@
 
 <div class="layout-wrapper">
 <nav class="tab-nav" role="tablist">
+  <button class="sidebar-toggle" onclick="toggleSidebar()" title="메뉴 접기/펼치기">☰</button>
   <button class="tab-btn active" role="tab" onclick="switchTab(0)">Phase 0<br>강의 도입</button>
   <button class="tab-btn" role="tab" onclick="switchTab(1)">Phase 1<br>프롬프트</button>
   <button class="tab-btn" role="tab" onclick="switchTab(2)">Phase 2<br>문서·카피</button>
@@ -2513,6 +2539,13 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
 </footer>
 
 <script>
+function toggleSidebar() {
+  const nav = document.querySelector('.tab-nav');
+  const btn = nav.querySelector('.sidebar-toggle');
+  nav.classList.toggle('collapsed');
+  btn.textContent = nav.classList.contains('collapsed') ? '▶' : '☰';
+}
+
 function switchTab(idx) {
   document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
   document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
