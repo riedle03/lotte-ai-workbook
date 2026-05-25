@@ -612,6 +612,7 @@
   <button class="tab-btn" role="tab" onclick="switchTab(2)">Phase 2 — 문서·카피</button>
   <button class="tab-btn" role="tab" onclick="switchTab(3)">Phase 3 — 정보통합</button>
   <button class="tab-btn" role="tab" onclick="switchTab(4)">Phase 4 — 데이터·보고</button>
+  <button class="tab-btn" role="tab" onclick="switchTab(5)">Phase 5 — 나만의 챗봇</button>
 </nav>
 
 <!-- ═══════════════════════════════════════════════ PHASE 0 ═══ -->
@@ -2134,6 +2135,214 @@ STEP 5. 사고 흐름 → 보고서 목차 자동 변환
           <li>부서별 대표 1명이 30초 발표 → 전체 공유</li>
         </ul>
         <div class="hint-highlight">예: "저는 메일 마스터를 써서 다음 주 일본 랜드사 호텔 블록 추가 요청 메일을 만들어보겠습니다."</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ PHASE 5 ═══ -->
+<div class="tab-panel" id="panel-5">
+<div class="container">
+
+  <div class="phase-intro">
+    <div class="phase-tag">Phase 5</div>
+    <h2>나만의 AI 챗봇을 만든다<br>— Gemini Gems 활용</h2>
+    <p class="lead">
+      지금까지 매번 프롬프트를 복사해서 붙여넣었다면, 이제는 <strong>저장해서 쓴다</strong>. Gemini Gems는 나만의 지시사항을 저장한 전용 AI 비서다. 한 번 만들어두면 "Tona, 시작하자" 한 줄만 쳐도 바로 동작한다.
+    </p>
+    <div class="output-box">
+      <span class="label">산출물</span>
+      <span class="value">내 업무에 맞는 Gem 1개 완성 — 이름·지시사항·테스트까지</span>
+    </div>
+  </div>
+
+  <!-- 개념 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge">개</div>
+      <h3>Gemini Gems란?</h3>
+    </div>
+    <div class="section-body">
+      <div class="compare-grid">
+        <div class="compare-col before" style="background:#f0f4ff;border-color:#c5d4f7;">
+          <div class="cc-label" style="color:var(--blue);">기존 방식</div>
+          <div class="cc-text">
+            매번 프롬프트 전문 복사<br>
+            → AI 새 창에 붙여넣기<br>
+            → 시작 명령어 입력<br>
+            <strong>→ 반복, 매번 번거로움</strong>
+          </div>
+        </div>
+        <div class="compare-col after">
+          <div class="cc-label">Gems 방식</div>
+          <div class="cc-text">
+            Gem 한 번 저장<br>
+            → 다음부턴 Gem 클릭<br>
+            → 시작 명령어만 입력<br>
+            <strong>→ 프롬프트가 항상 로드됨</strong>
+          </div>
+        </div>
+      </div>
+      <div class="concept-grid" style="margin-top:14px;">
+        <div class="concept-item">
+          <div class="ci-label">무엇인가</div>
+          <div class="ci-title">전용 AI 비서</div>
+          <div class="ci-desc">내가 작성한 지시사항(시스템 프롬프트)을 저장한 맞춤형 Gemini</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">어디서</div>
+          <div class="ci-title">Gemini 사이드바</div>
+          <div class="ci-desc">gemini.google.com → 왼쪽 "Gems 탐색" 또는 "내 Gems"</div>
+        </div>
+        <div class="concept-item">
+          <div class="ci-label">활용법</div>
+          <div class="ci-title">업무용 Gem 저장</div>
+          <div class="ci-desc">Tona·카피 마스터·메일 마스터 등 자주 쓰는 프롬프트를 각각 Gem으로 저장</div>
+        </div>
+      </div>
+      <div class="warning-box" style="margin-top:12px;">
+        <strong>⚠️ Gems 이용 조건</strong> — Gems 생성은 Google One AI Premium(유료) 구독자 전용입니다. 무료 계정은 구글이 제공하는 기본 Gems(코딩 도우미·글쓰기 도우미 등)만 사용 가능. 오늘 실습은 강사 시연으로 확인 후, 유료 구독자는 직접 만들어보세요.
+      </div>
+    </div>
+  </div>
+
+  <!-- 실습 단계 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">실</div>
+      <h3>Gem 만들기 — 4단계</h3>
+      <span class="section-sub">10분</span>
+    </div>
+    <div class="section-body">
+      <div class="tool-links" style="margin-bottom:18px;">
+        <a href="https://gemini.google.com/gems" target="_blank" class="tool-link primary">Gemini Gems 열기 →</a>
+      </div>
+
+      <div class="practice-steps">
+        <div class="ps-item">
+          <div class="ps-num">1</div>
+          <div class="ps-content">
+            <div class="ps-title">Gems 메뉴 진입</div>
+            <div class="ps-desc">gemini.google.com 접속 → 왼쪽 사이드바 "Gems 탐색" 클릭 → "새 Gem 만들기" (또는 "+ 만들기")</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">2</div>
+          <div class="ps-content">
+            <div class="ps-title">Gem 이름 입력</div>
+            <div class="ps-desc">내 업무에 맞는 이름으로. 예: <strong>롯데관광_Tona</strong> / <strong>롯데관광_카피마스터</strong> / <strong>롯데관광_메일마스터</strong></div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">3</div>
+          <div class="ps-content">
+            <div class="ps-title">지시사항에 프롬프트 전문 붙여넣기</div>
+            <div class="ps-desc">"지시사항" 입력란에 Phase 1~4에서 복사한 프롬프트 전문을 그대로 붙여넣기. 수정 없이 원문 사용.</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">4</div>
+          <div class="ps-content">
+            <div class="ps-title">저장 → 시작 명령어로 테스트</div>
+            <div class="ps-desc">"저장" 클릭 → 바로 대화창 열림 → 시작 명령어 입력해서 정상 동작 확인</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <table class="job-table">
+          <thead><tr><th>추천 Gem 이름</th><th>지시사항 원본</th><th>시작 명령어</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>롯데관광_Tona</strong></td>
+              <td>Phase 2 → Tona 전문 복사</td>
+              <td><code style="font-size:12px;background:var(--cloud);padding:2px 6px;border-radius:4px;">Tona, 시작하자. 첫 번째 질문을 해줘.</code></td>
+            </tr>
+            <tr>
+              <td><strong>롯데관광_카피마스터</strong></td>
+              <td>Phase 2 → 카피 마스터 전문 복사</td>
+              <td><code style="font-size:12px;background:var(--cloud);padding:2px 6px;border-radius:4px;">카피 마스터, 시작하자. 첫 번째 질문을 해줘.</code></td>
+            </tr>
+            <tr>
+              <td><strong>롯데관광_메일마스터</strong></td>
+              <td>Phase 1 → 메일 마스터 전문 복사</td>
+              <td><code style="font-size:12px;background:var(--cloud);padding:2px 6px;border-radius:4px;">시작해줘. 첫 번째 질문을 해줘.</code></td>
+            </tr>
+            <tr>
+              <td><strong>롯데관광_리사</strong></td>
+              <td>Phase 4 → 리사(ReSa) 전문 복사</td>
+              <td><code style="font-size:12px;background:var(--cloud);padding:2px 6px;border-radius:4px;">1) 보고 주제: ___ 2) 보고 대상: ___ 3) 보고 방식: ___</code></td>
+            </tr>
+            <tr>
+              <td><strong>롯데관광_프롬프트마스터</strong></td>
+              <td>Phase 1 → 프롬프트 마스터 전문 복사</td>
+              <td><code style="font-size:12px;background:var(--cloud);padding:2px 6px;border-radius:4px;">시작해줘.</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 활용 확장 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge blue">+</div>
+      <h3>Gem 더 잘 쓰는 법 — 커스터마이징 팁</h3>
+    </div>
+    <div class="section-body">
+      <div class="practice-steps">
+        <div class="ps-item">
+          <div class="ps-num">★</div>
+          <div class="ps-content">
+            <div class="ps-title">회사 맥락을 지시사항 앞에 추가</div>
+            <div class="ps-desc">프롬프트 전문 앞에 한 줄 추가: <br><code style="font-size:12px;background:var(--cloud);padding:2px 6px;border-radius:4px;">※ 이 Gem의 사용자는 롯데관광개발 임직원이다. 여행상품·패키지·기획전 관련 업무가 주를 이룬다.</code><br>→ AI가 롯데관광 맥락으로 더 정확하게 질문하고 답변</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">★</div>
+          <div class="ps-content">
+            <div class="ps-title">직군별 전용 Gem 만들기</div>
+            <div class="ps-desc">예: <strong>영업팀_메일마스터</strong> → 지시사항에 "이 Gem의 사용자는 롯데관광 영업팀이며 일본·동남아 랜드사와의 거래 메일을 주로 작성한다" 추가</div>
+          </div>
+        </div>
+        <div class="ps-item">
+          <div class="ps-num">★</div>
+          <div class="ps-content">
+            <div class="ps-title">대화 이어가기</div>
+            <div class="ps-desc">Gem은 대화 내용을 세션 안에서 기억합니다. "방금 Tona가 만든 보고서를 카피 마스터 톤으로도 만들어줘"처럼 이전 결과를 연결해서 활용 가능.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 힌트 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="step-badge coral">힌</div>
+      <h3>힌트 — 강사 시연 예시 (Phase 5)</h3>
+    </div>
+    <div class="section-body">
+      <div class="hint-card">
+        <div class="hint-label">시연 시나리오</div>
+        <div class="hint-title">Tona Gem 생성 → 즉시 사용</div>
+        <ul>
+          <li>Gemini Gems → "새 Gem 만들기"</li>
+          <li>이름: <strong>롯데관광_Tona</strong></li>
+          <li>지시사항: Tona 프롬프트 전문 붙여넣기</li>
+          <li>저장 → 대화창에서 <strong>"Tona, 시작하자. 첫 번째 질문을 해줘."</strong></li>
+          <li>6단계 질문 자동 진행 → 보고서 출력</li>
+        </ul>
+        <div class="hint-highlight">→ 다음 날부터 Gem 클릭 한 번 → 시작 명령어 한 줄 → 바로 업무 보고서 작성 시작. 복사·붙여넣기 불필요.</div>
+      </div>
+
+      <div class="so-what" style="margin-top:14px;">
+        <div class="sw-label">강의 마무리 — 자기 선언</div>
+        오늘 만든 5개 프롬프트 중 <strong>당장 내일 쓸 Gem 1개</strong>를 골라보세요.<br>
+        이름 짓고, 저장하고, 내일 아침 첫 번째 업무에 써보는 것 — 그게 이 강의의 완성입니다.
       </div>
     </div>
   </div>
