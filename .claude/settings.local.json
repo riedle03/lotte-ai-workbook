@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(tesseract --version 2>$null)",
+      "WebFetch(domain:aibookprompt.netlify.app)"
+    ]
+  }
+}
