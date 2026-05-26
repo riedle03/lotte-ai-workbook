@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1779683818297,
+  "lastScanned": 1779779494119,
   "projectRoot": "C:\\project\\롯데관광연수",
   "techStack": {
     "languages": [],
@@ -33,7 +33,7 @@
       "path": "legacy",
       "purpose": null,
       "fileCount": 59,
-      "lastAccessed": 1779683818226,
+      "lastAccessed": 1779779493885,
       "keyFiles": [
         "ai게임 개발 - 100.jpg",
         "ai게임 개발 - 101.jpg",
@@ -42,11 +42,24 @@
         "ai게임 개발 - 104.jpg"
       ]
     },
+    "notebooklm_더미자료": {
+      "path": "notebooklm_더미자료",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1779779493889,
+      "keyFiles": [
+        "01_상품기획팀_2026년2분기기획회의록.md",
+        "02_영업팀_주간업무보고_2026년5월3주차.md",
+        "03_예약발권팀_항공권변경환불처리매뉴얼.md",
+        "04_경영지원팀_2026년1분기부서운영보고.md",
+        "05_고객서비스팀_2026년4월VOC월간보고.md"
+      ]
+    },
     "더미데이터팩": {
       "path": "더미데이터팩",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1779683818226,
+      "lastAccessed": 1779779493891,
       "keyFiles": [
         "01_상품기획_분기판매현황.csv",
         "02_영업_거래선별매출현황.csv",
@@ -59,140 +72,20 @@
   "hotPaths": [
     {
       "path": "workbook.html",
-      "accessCount": 191,
-      "lastAccessed": 1779718456390,
-      "type": "directory"
-    },
-    {
-      "path": "",
-      "accessCount": 3,
-      "lastAccessed": 1779704443171,
-      "type": "directory"
-    },
-    {
-      "path": "더미데이터팩\\01_상품기획_분기판매현황.csv",
-      "accessCount": 1,
-      "lastAccessed": 1779702998469,
+      "accessCount": 6,
+      "lastAccessed": 1779779712326,
       "type": "file"
     },
     {
-      "path": "더미데이터팩\\02_영업_거래선별매출현황.csv",
-      "accessCount": 1,
-      "lastAccessed": 1779702998802,
+      "path": "CLAUDE.md",
+      "accessCount": 5,
+      "lastAccessed": 1779784056193,
       "type": "file"
     },
     {
-      "path": "notebooklm_더미자료\\01_상품기획팀_2026년2분기기획회의록.md",
+      "path": "reorder_phases.py",
       "accessCount": 1,
-      "lastAccessed": 1779704318872,
-      "type": "file"
-    },
-    {
-      "path": "notebooklm_더미자료\\04_경영지원팀_2026년1분기부서운영보고.md",
-      "accessCount": 1,
-      "lastAccessed": 1779704338196,
-      "type": "file"
-    },
-    {
-      "path": "notebooklm_더미자료\\02_영업팀_주간업무보고_2026년5월3주차.md",
-      "accessCount": 1,
-      "lastAccessed": 1779704346726,
-      "type": "file"
-    },
-    {
-      "path": "notebooklm_더미자료\\07_IT시스템팀_2026년1분기시스템운영현황.md",
-      "accessCount": 1,
-      "lastAccessed": 1779704353888,
-      "type": "file"
-    },
-    {
-      "path": "notebooklm_더미자료\\05_고객서비스팀_2026년4월VOC월간보고.md",
-      "accessCount": 1,
-      "lastAccessed": 1779704361118,
-      "type": "file"
-    },
-    {
-      "path": "notebooklm_더미자료\\06_카지노VIP팀_2026년1분기VIP운영보고.md",
-      "accessCount": 1,
-      "lastAccessed": 1779704363560,
-      "type": "file"
-    },
-    {
-      "path": "notebooklm_더미자료\\03_예약발권팀_항공권변경환불처리매뉴얼.md",
-      "accessCount": 1,
-      "lastAccessed": 1779704374878,
-      "type": "file"
-    },
-    {
-      "path": "더미데이터팩",
-      "accessCount": 1,
-      "lastAccessed": 1779704665360,
-      "type": "directory"
-    },
-    {
-      "path": "ai게임 개발 - 124.jpg",
-      "accessCount": 1,
-      "lastAccessed": 1779709465430,
-      "type": "file"
-    },
-    {
-      "path": "ai게임 개발 - 125.jpg",
-      "accessCount": 1,
-      "lastAccessed": 1779709465488,
-      "type": "file"
-    },
-    {
-      "path": "ref_제미나이완전미친활용법_OCR_p124-125.md",
-      "accessCount": 1,
-      "lastAccessed": 1779709514894,
-      "type": "file"
-    },
-    {
-      "path": "tmp_view\\outfit1.png",
-      "accessCount": 1,
-      "lastAccessed": 1779715349599,
-      "type": "file"
-    },
-    {
-      "path": "tmp_view\\outfit2.png",
-      "accessCount": 1,
-      "lastAccessed": 1779715350098,
-      "type": "file"
-    },
-    {
-      "path": "tmp_view\\mockup1.png",
-      "accessCount": 1,
-      "lastAccessed": 1779715350233,
-      "type": "file"
-    },
-    {
-      "path": "tmp_view\\mockup2.png",
-      "accessCount": 1,
-      "lastAccessed": 1779715350804,
-      "type": "file"
-    },
-    {
-      "path": "tmp_view\\scene1.png",
-      "accessCount": 1,
-      "lastAccessed": 1779715351640,
-      "type": "file"
-    },
-    {
-      "path": "tmp_view\\mockup3.png",
-      "accessCount": 1,
-      "lastAccessed": 1779715351896,
-      "type": "file"
-    },
-    {
-      "path": "tmp_view\\scene2.png",
-      "accessCount": 1,
-      "lastAccessed": 1779715352290,
-      "type": "file"
-    },
-    {
-      "path": "tmp_view\\scene3.png",
-      "accessCount": 1,
-      "lastAccessed": 1779715353172,
+      "lastAccessed": 1779783640816,
       "type": "file"
     }
   ],

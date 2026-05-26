@@ -1,7 +1,7 @@
 {
-  "tool_name": "Read",
-  "tool_input_preview": "{\"file_path\":\"C:\\\\project\\\\롯데관광연수\\\\tmp_view\\\\scene3.png\"}",
-  "error": "File does not exist. Note: your current working directory is C:\\project\\롯데관광연수.",
-  "timestamp": "2026-05-25T13:20:21.721Z",
-  "retry_count": 8
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"python3 - << 'PYEOF'\\nwith open('C:/project/롯데관광연수/workbook.html', 'r', encoding='utf-8') as f:\\n    content = f.read()\\n\\nlines = content.split('\\\\n')\\nprint(f\\\"총 라인: {len(lines)}\\\")\\n# 경...",
+  "error": "Exit code 1\n�� ����: 3709\r\nTraceback (most recent call last):\r\n  File \"<stdin>\", line 19, in <module>\r\nUnicodeEncodeError: 'cp949' codec can't encode character '\\u2550' in position 23: illegal multibyte sequence",
+  "timestamp": "2026-05-26T08:19:53.709Z",
+  "retry_count": 1
 }
